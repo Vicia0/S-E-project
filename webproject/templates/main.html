@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> RBIS HOMEPAGE </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width = device-width, initial-scale = 1, shrink-to-fit = no">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base_css.css' %}">
+    <!-- header -->
+    {% include 'snippets/header.html'%}
+
+</head>
+
+<body>
+    {% block content%}
+
+    {% endblock content %}
+    </div>
+    <!-- footer -->
+    {% include 'snippets/footer.html' %}
+
+
+</body>
+
+</html>
