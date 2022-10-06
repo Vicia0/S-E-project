@@ -1,0 +1,96 @@
+
+
+{% load static %}
+
+
+<link rel="stylesheet" href="{% static 'css/datashares.css' %}">
+
+<div style="margin-top: 40px;" class="slideshow-container3">
+    <div class="heading"><br><br>
+        <h2> Who is sharing data with us</h2>
+    </div><br><br>
+    <section class="layout-datashares">
+
+
+        <div class="data-shares">
+            <ul class="slide-datashare">
+                <li>
+                    <article>
+                        <img class="image-datashare" style="width:200px; margin-right:10px"
+                            src="{% static 'images/data-shares/Alphonse.jpg' %}"><br>
+                        <div class="image-data-sharer-name1"> Alphonse Nzarora</div>
+                    </article>
+                    <article>
+                     <img class="image-datashare"  style="width:200px" src="{% static 'images/data-shares/m-claire.jpg' %}"><br><br>
+                        <div class="image-data-sharer-name2" style="margin-left: 250px;"> M.Claire Dusabe </div>
+                    </article>
+                </li>
+            </ul>
+        </div>
+
+        <div class="data-shares">
+            <ul class="slide-datashare">
+                <li>
+                    <article>
+                        <img class="image-datashare" style="width:200px; margin-right:10px" src="{% static 'images/data-shares/mindje.png' %}">
+                        <div class="image-data-sharer-name1"> Mapendo Mindje </div>
+                    </article>
+
+                    <article>
+                        <img class="image-datashare" style="width:200px,"
+                            src="{% static 'images/data-shares/Gael.jpg' %}"><br>
+                        <div class="image-data-sharer-name2" style="margin-left: 250px;"> Gael R. V. Weghe </div><br>
+
+                    </article>
+                </li>
+            </ul>
+            
+        </div>
+
+        <div class="data-shares">
+        <img class="image-datashare" style="width: 400px;" src="{% static 'images/data-shares/Birdsong.png' %}"><br>
+        <div class="image-data-sharer-name1"> Planet Birdsong </div><br>
+     </div>
+
+     <a class="prev3" onclick="plusSlides3(-1)">❮</a>
+     <a class="next3" onclick="plusSlides3(1)">❯</a>
+
+</div>
+
+
+
+<div class="dot3-container2">
+    <span class="dot3" onclick="currentSlide3(1)"></span>
+    <span class="dot3" onclick="currentSlide3(2)"></span>
+    <span class="dot3" onclick="currentSlide3(3)"></span>
+</div>
+
+<script>
+    var s_index = 1;
+    showSlides3(s_index);
+
+    function plusSlides3(n) {
+        showSlides3(s_index += n);
+    }
+
+    function currentSlide3(n) {
+        showSlides3(s_index = n);
+    }
+
+    function showSlides3(n) {
+        var i;
+        var slides3 = document.getElementsByClassName("data-shares");
+        var dots3 = document.getElementsByClassName("dot3");
+        if (n > slides3.length) { s_index = 1 }
+        if (n < 1) { s_index = slides3.length }
+        for (i = 0; i < slides3.length; i++) {
+            slides3[i].style.display = "none";
+        }
+        for (i = 0; i < dots3.length; i++) {
+            dots3[i].className = dots3[i].className.replace(" active", "");
+        }
+        slides3[s_index - 1].style.display = "block";
+        dots3[s_index - 1].className += " active";
+    }
+</script>
+</section>

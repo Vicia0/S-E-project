@@ -1,0 +1,46 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/footer.css' %}" >
+<footer>
+    <section>
+        <article>
+            <div class="article-img" style="align-items: center">
+                    <img src="{% static 'images/RBIS-logo.png' %}">            
+                    <ul>
+                        <li>
+                            <a href="https://www.facebook.com/profile.php?id=100010450780302"> 
+                                <img src="{% static 'images/social-media/fb.png' %}">
+                            </a>     
+                            <a></a>  
+                            <a href="https://twitter.com/coerwanda">
+                                <img src="{% static 'images/social-media/twitter.png' %}">
+                            </a>                     
+		                </li>
+		            </ul>
+            </div>
+            <div class="contact-us">
+                <ul>
+                    <li><strong><em>GET IN TOUCH</em></strong></li><br>
+                    <li> <img src="{% static 'images/social-media/mail.jpg' %}" >&nbsp; <a href="mailto:coeb1@ur.ac.rw"> coeb1@ur.ac.rw</a> </li><br>                                        
+                    <li> <img src="{% static 'images/social-media/call.png' %}">&nbsp; +250786470049</li><br>
+                    <li> <img src="{% static 'images/social-media/location.png' %}" >&nbsp; Huye Campus, University of Rwanda<br> &nbsp; or <br>
+                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nyarugenge Campus, University of Rwanda</li>
+                </ul>
+            </div>
+        </article>
+        <aside><br>
+            <form action="/action_page.php">
+                    <p><strong><em>SUBSCRIBE TO OUR NEWSLETTER</em></strong><br><br>
+                       We will occasionally let you know of our special events and what we have been up to.</p>
+                    <input type="text" placeholder="Email address" name="mail" required>
+                    <input type="submit" value="Subscribe">
+            </form>
+        </aside>
+     </section>
+     
+     <hr>
+        To cite RBIS: <br>RBIS. (Year). Biodiversity Information System. (Rwanda Biodiversity Information System (RBIS)) 
+        Retrieved Day/Month/Year, from Biodiversity Information System: https://rbis.ur.ac.rw
+        <br><em>Copyright Â© Kartoza 2022 Version : 35eeb13a (2022-02-03)</em>
+</footer>
+

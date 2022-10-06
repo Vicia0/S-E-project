@@ -1,0 +1,183 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <style>
+ 
+
+     /* Slideshow container */
+    
+
+    .slideshow-container {
+      
+      background-size: 100% 100%;
+      width: 100%;
+      height: 400px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      position: absolute;
+      margin-top: 0px;
+      animation: mySlides 10s infinite linear;
+    }
+
+
+
+    @keyframes mySlides{
+      0%{ background-image: url('static/images/Rhinos-reintegration.jpg');}
+      50%{ background-image: url('static/images/Bisoke.jpg');}
+      100%{ background-image: url('static/images/rugezi.jpg');}
+
+    }
+
+
+    /* Next & previous buttons */
+    .prev,
+    .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      margin-top: -30px;
+      padding: 16px;
+      color: rgb(15, 26, 235);
+      font-weight: bold;
+      font-size: 20px;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+      position: absolute;
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+      background-color: rgba(251, 248, 248, 0.8);
+      color: white;
+    }
+
+    /* The dot/bullet/indicator container */
+    .dot-container {
+      text-align: center;
+      padding: 20px;
+      background: #ddd;
+    }
+
+    /* The dots/bullets/indicators */
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+
+    /* Add a background color to the active dot/circle */
+    .active,
+    .dot:hover {
+      background-color: #ed1212;
+    }
+
+    /* Add an italic font style to all quotes */
+    q {
+      font-style: italic;
+    }
+
+   
+  </style>
+</head>
+
+<body>
+
+  <div class="slideshow-container">
+<!-- 
+    <div class='mySlides' style="
+    background-image: url('static/images/Rhinos-reintegration.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:50%;
+"> -->
+      <q style="color: #141313f1; font-size:larger">RBIS<br>Overcaming he constraint of biodiversitydata
+        accessibility</q>
+      <br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+<!-- 
+    <div class="mySlides" style="
+    background-image: url('static/images/Bisoke.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+"> -->
+      <q style="color: #121010f1">RBIS-Rwanda Biodiversity<br> Information System <br>Open access portal to
+        biodiversityof Rwanda</q>
+      <br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+<!-- 
+    <div class="mySlides" style="
+    background-image: url('static/images/rugezi.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+"> -->
+     
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+
+  </div>
+
+  <div class="dot-container">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+  </div>
+
+  <script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("dot");
+      if (n > slides.length) { slideIndex = 1 }
+      if (n < 1) { slideIndex = slides.length }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+    }
+  </script>
+
+</body>
+
+</html>

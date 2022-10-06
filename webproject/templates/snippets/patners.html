@@ -1,0 +1,214 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Patners</title>
+
+</head>
+
+<section>
+
+    <style>
+        .list li {
+            width: 100%;
+            position: relative;
+            background-position: center;
+            background-size: cover;
+
+        }
+
+        h2 {
+            color: rgb(23, 8, 98);
+            text-decoration: double;
+            text-align: center;
+
+        }
+
+        .slide li {
+            display: flex;
+            flex-direction: row;
+        }
+
+
+
+        .list2 {
+            list-style: none;
+        }
+
+        .list2 section {
+            display: flex;
+            flex-direction: row;
+
+        }
+
+        .list3 section {
+            display: flex;
+            flex-direction: row;
+            list-style: none;
+
+        }
+
+        .slide3 article {
+            background-position: center;
+        }
+
+        .section1 {
+            width: 180%;
+
+        }
+
+        .section2 {
+            width: 150%;
+
+        }
+
+        /* Slideshow container */
+        .slideshow-container2 {
+            position: relative;
+
+        }
+
+        /* Slides */
+        .slide {
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 50%;
+        }
+
+        /* next2 & previous buttons */
+        .prev2,
+        .next2 {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -30px;
+            padding: 16px;
+            color: rgb(15, 26, 235);
+            font-weight: bold;
+            font-size: 20px;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        /* Position the "next2 button" to the right */
+        .next2 {
+            position: absolute;
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+
+        /* On hover, add a black background color with a little bit see-through */
+        .prev2:hover,
+        .next2:hover {
+            background-color: rgba(154, 57, 57, 0.8);
+            color: white;
+        }
+
+    </style>
+
+    <div class="slideshow-container2">
+
+        <h2>Patners</h2>
+
+        <div class="slide">
+
+            <ul class="list">
+                <img src="{% static 'partners/arcos_logo.png' %}" alt="oops img">
+                <img src="{% static 'partners/RWCA.png' %}" alt="oops img">
+                <img src="{% static 'partners/diana_fossey_logo.png' %}" alt="oops img">
+                <img src="{% static 'partners/jrs_logo.png' %}" alt="oops img">
+                <img src="{% static 'partners/nisr_logo.png' %}" alt="oops img">
+
+            </ul>
+
+        </div>
+
+        <div class="slide">
+
+            <ul class="list2">
+
+                <section style="background-position: center">
+                    <img src="{% static 'partners/Unesco_logo.png' %}" alt="oops img">
+                    <div>
+                        <li><img src="{% static 'partners/rdb_logo.png' %}" alt="oops img"></li>
+                        <li><img style="width:100%" src="{% static 'partners/sanbi.png' %}" alt="oops img"></li>
+                    </div>
+                </section>
+            </ul>
+        </div>
+
+        <div class="slide">
+
+            <ul class="list3">
+                <section class="slide3">
+                    <article class="section1" style="height: 10%; padding: right 2px;">
+                        <li><img style="width:70%" src="{% static 'partners/kartoza_Edpmaf3.png' %}" alt="oops img">
+                        </li><br>
+                        <li><img style="width:70%" src="{% static 'partners/rema-logo-small.png' %}" alt="oops img">
+                        </li>
+                    </article>
+                    <article class="section2">
+                        <img style="width: 40%;" height="88%" src="{% static 'partners/FRC_LOGO.png' %}" alt="oops img">
+                        <img src="{% static 'partners/moe_logo.png' %}" alt="oops img">
+                    </article>
+                </section>
+            </ul>
+
+        </div>
+
+        <a class="prev2" onclick="plusSlides2(-1)">❮</a>
+        <a class="next2" onclick="plusSlides2(1)">❯</a>
+
+    </div>
+
+    <!-- <div class="dot-container2">
+        <span class="dot" onclick="currentSlide2(1)"></span>
+        <span class="dot" onclick="currentSlide2(2)"></span>
+        <span class="dot" onclick="currentSlide2(3)"></span>
+    </div> -->
+
+    <script>
+        var slideIndex = 1;
+        showSlides2(slideIndex);
+
+        function plusSlides2(n) {
+            showSlides2(slideIndex += n);
+        }
+
+        function currentSlide2(n) {
+            showSlides2(slideIndex = n);
+        }
+
+        function showSlides2(n) {
+            var i;
+            var slides = document.getElementsByClassName("slide");
+           
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            slides[slideIndex - 1].style.display = "block";
+            
+            
+        }
+    </script>
+</section>
+
+<!-- dotmovement on partners -->
+
+<!-- var dots = document.getElementsByClassName("dot");
+for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");    
+}
+dots[slideIndex - 1].className += " active";
+ -->
+</html>

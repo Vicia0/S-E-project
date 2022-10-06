@@ -1,0 +1,47 @@
+        /*nav{background-color: 3366CC; margin-top: 0;overflow: hidden;display: flex;justify-content: space-between;}*/
+        nav{display: flex; width:100%; color: white; }
+        .navbar img{height: 45px; margin-top:0.3% }
+        .navbar .logo{width: auto; margin-left:5%;}
+        .navbar .yellow-figure{width:2px;margin-left: 1%;}
+        /*.navbar{position: fixed; height:auto; width: 100%;left: 0;background-color: rgb(2, 2, 75);}*/
+        .navbar{height:auto; width: 100%;left: 0;background-color:purple; }
+        .navbar .right-side, .navbar .left-side{list-style-type: none; width: 100%;}
+        .navbar .right-side li a, .navbar .left-side li a{text-decoration: none; font-weight: bold;}
+        .navbar ul li, .navbar .dropdown li{list-style: none;margin: 0 8px;display: inline-block;}
+        .navbar ul li a, .navbar .dropdown a {font-size: 17px; padding: 2px 5px; transition: .4s; color: white;}
+        .navbar ul li a.active, .navbar ul li a:hover, .navbar .dropdown a.active, .navbar .dropdown a:hover {color: brown; font-size:large;}
+        .navbar .right-side{margin-right:5%;align-items: right;text-align: right;width: 80%;}
+        .navbar .left-side{left:5%;text-align: left;}
+        .navbar .dropdown {overflow: hidden; }
+        .navbar .dropdown .dropbtn {border: none;outline: none;margin: 0;}
+        .navbar .dropdown-content {display: none;position: absolute;background-color: white;min-width: 140px;z-index: 1;padding: 12px 16px;}
+        .navbar .dropdown-content a {padding: 12px 16px;text-decoration: none;display: block;}
+        .navbar .dropdown .dropdown-content a{color:black; font-weight:lighter; font-size:small}
+        .navbar .dropdown-content a:hover {background-color:#CCCCCC }
+        .navbar .dropdown:hover .dropdown-content {display: block;color:#333333;  }
+        .navbar .search{text-decoration: none;}
+        .navbar .search-box { width:90px}
+        .navbar .signup, .navbar .login{width:70px}
+        .navbar .sidebar {display: none;overflow: hidden;background-color: #333;position: relative;width: auto; background:aqua; height:auto}
+        .navbar .sidebar #myLinks {display: none;background-color:orange}
+        .navbar .sidebar a {padding: 14px 16px;text-decoration: none;font-size: 17px;display: block;}
+        .navbar .sidebar a.icon1, .navbar .sidebar a.icon2 {background: black;display: block;position: absolute;right: 0;top: 0;width:50px;height:50px}
+        .navbar .sidebar a:hover {color: black;}
+
+        @media (max-width: 1100px) {
+            nav .right-side, nav .right-side .sidebar .icon2 {display:block; }
+            nav .right-side .sidebar .icon1{display: none;}
+            nav .left-side {width: 100%; float: right; right:0;height:auto}
+            nav .left-side {display:block; right: 0; }
+        }
+        @media (max-width: 700px) {
+            nav .left-side {display:block;}
+            nav .right-side {width: 100%; float: right;  right:0;height:auto}
+            nav .right-side, nav .right-side .sidebar .icon1{display:list-item; right: 0; }
+        }
+        @media (max-width:500px){
+            nav .left-side {display:none; }
+            nav .right-side {width: 100%; float: right;  right:0;height:auto}
+            nav .right-side, nav .right-side .sidebar .icon1, nav .right-side .sidebar .icon {display:list-item; right: 0; }
+            nav .right-side .search, nav .right-side .sidebar .icon2{display: none;}
+        }
