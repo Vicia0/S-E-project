@@ -4,14 +4,14 @@ from django.shortcuts import render
 # Create your views here.
 
 #def index(request,*args,**kwargs):
-"""def index(request):
-    context = {}
-    #i.e context['webname'] = "RBIS"
-    return render(request, "RBIS/home.html", context )"""
 def home(request):
     context = {}
     #i.e context['webname'] = "RBIS"
-    return render(request, "RBIS/home.html", context )
+    return render(request, "start-page.html", context )
+def passenger_login(request):
+    context = {}
+    #i.e context['webname'] = "RBIS"
+    return render(request, "login-passenger.html", context )
 def check(request):
     return HttpResponse("Hello world!")
 
