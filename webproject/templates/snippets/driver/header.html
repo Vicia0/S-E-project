@@ -1,10 +1,10 @@
 {% load static %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-    .overlay-menu {width: 300px;display: none;position: relative;z-index: 1;margin:auto;background-color: #36AE7C;}
-    .overlay-menu .navbar{display: grid;height: 520px; height: 42px;width: 80%; margin: auto;grid-template-columns: repeat(2, 1fr);position:relative; top:5%;text-align:left }
-    .overlay-menu .navbar .closebtn{font-size: 40px; position:relative}
-    .overlay-menu .navbar .right-sid{text-align:right}
+    .overlay-menu {width: 100%;height: 100%;display: none;position: relative;z-index: 1;background-color: #36AE7C;}
+    .overlay-menu .overlay-nav{display: grid;height: 42px;width: 80%; margin: auto;grid-template-columns: repeat(2, 1fr);position:relative; top:5%;text-align:left }
+    .overlay-menu .overlay-nav .closebtn{font-size: 40px; position:relative;top:-15px}
+    .overlay-menu .overlay-nav .right-sid{text-align:right}
     .overlay-menu-content {position: relative;left:10%;top: 10%;width: 80%;text-align: left;color:white}
     .overlay-menu a {padding: 17px;text-decoration: none;font-size: 16px;color: white;display: block;transition: 0.3s;}
     .overlay-menu a i{position:relative; left:140px}
@@ -16,10 +16,8 @@
     .nav .menu-icn{left:0;position:relative; top:5px}
     .nav .img-icon, .overlay-menu .img-icon{height:35px;width:35px;position:relative;top:4px;}
 </style>
-
-<nav >
     <div id="overlay-nav" class="overlay-menu">
-        <div class="navbar">
+        <div class="overlay-nav">
             <div><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
                 <div class="right-sid"><img alt="" class="img-icon" src="{% static 'images/driver-img.jpg' %}" ></div>
             </div>
@@ -51,4 +49,3 @@
                 document.getElementById("menu-icon").style.display="block"; }
         </script>
     </div>
-</nav>

@@ -1,6 +1,6 @@
 {% load static %}
 <style>
-    body{max-width: 300px;margin:auto;background-color: #C0C0C0; text-align: center;}
+    .homepage{max-width: 300px;margin:auto;background-color: #C0C0C0; text-align: center;}
     .web-container{height: 520px;border-radius: 10px;background-color:white;color:#36AE7C; text-align:center}
     button {text-align: center; height:45px; width:200px; border-radius: 10px;color:white;font-weight: lighter;
        position: relative;top: 10%; bottom: 5px;background-color: #36AE7C;}
@@ -14,9 +14,11 @@
     form .riding:checked + .driv-rid-tab + .trip-form .riding-htm{transform:rotate(0);}
     form .button {text-align: center; height:45px; width:85%; border-radius: 10px;color:white;font-weight: bold;background-color: #36AE7C; border:none}
 </style>
-<body>
+<body class="homepage">
     <div class="web-container">
-        {% include 'snippets/driver/header.html' %}
+        <nav>
+            {% include 'snippets/driver/header.html' %}
+        </nav>
         <div style="position:relative ;top:-440px;width:280px;left:10px; height:430px;color:#36AE7C">
             TRIP
             <div >
