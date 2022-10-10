@@ -4,15 +4,8 @@
     .web-container{height: 520px;border-radius: 10px;background-color:white;color:#36AE7C; text-align:center}
     button {text-align: center; height:45px; width:200px; border-radius: 10px;color:white;font-weight: lighter;
        position: relative;top: 10%; bottom: 5px;background-color: #36AE7C;}
-       form{text-align:center; position:relative; width:80%;left:10%; height:90%;top:5%}
-    form .driv-rid{display:none; background-color:aqua}
-    form .trip-form{width:90%; position:relative; left:5%; top:2%}
-    form .trip-form .tb-riding-drivin-htm{position:absolute;transform:rotateY(180deg);backface-visibility:hidden;transition:all .4s linear}
-    form .trip-form .details{width:195px; position:relative; left:5%;top:15px; text-align:left}
-    form .trip-form .details input{display: block;border: none;border-radius: 5px;width: 98%;height: 25px;background-color: rgb(204, 255, 255,0.7)}
-    form .driving:checked + .driv-rid-tab + .riding + .driv-rid-tab + .trip-form .driving-htm{transform:rotate(0);}
-    form .riding:checked + .driv-rid-tab + .trip-form .riding-htm{transform:rotate(0);}
-    form .button {text-align: center; height:45px; width:85%; border-radius: 10px;color:white;font-weight: bold;background-color: #36AE7C; border:none}
+    form{text-align:center; position:relative; width:80%;left:10%; height:90%;top:5%}
+    form button {text-align: center; height:45px; width:85%; border-radius: 10px;color:white;font-weight: bold;background-color: #36AE7C; border:none}
 </style>
 <body class="homepage">
     <div class="web-container">
@@ -23,30 +16,40 @@
             TRIP
             <div >
                 <form method="post" action="">
-                    <input id="tb-driving" type="radio" name="driv-rid-tab" class="driv-rid driving" checked><label for="tb-driving" class="driv-rid-tab">Driving</label>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <input id="tb-riding" type="radio" name="driv-rid-tab" class="driv-rid riding"><label for="tb-riding" class="driv-rid-tab">Riding</label>        
-                    <div class="trip-form">
-                        <div class="tb-riding-drivin-htm driving-htm">
-                            <div class="details">
-                                DRIVING
-                            </div>
-                        </div>
-                        <div class="tb-riding-drivin-htm riding-htm">
-                            <div class="details">
-                                RIDING
-                            </div>
-                        </div>
-                        <div style="top:250px; position:relative">
-                            <div>
-                                <a href="{% url 'driver_homepage' %}">
-                                    Drive <br>
-                                    <input type="submit" class="button" value="SUBMIT"></a>
-                            </div>
-                        </div> 
-                    </div>  
-                </form>  
-    
+                    <select name="Origin">
+                        <option>Select current location</option>
+                        <option>Remera/ Gisimenti bus stop</option>
+                        <option>Remera/ National stadium</option>
+                        <option>Remera/ Police station</option>
+                        <option>Kimironko/ Simba supermarket</option>
+                        <option>Kimironko markert Bus park</option>
+                        <option>BK ATM</option>
+                        <option>Prison - Nkubito DB</option>
+                        <option>Kwa Mushimire Merez Petrl station </option>
+                        <option>Kwa Ntayinzira bus stop</option>
+                        <option>Azam Roundabout- Bus stop</option>
+                        <option>Azam Roundabout- moto stop</option>
+                        <option>Kimironko/ Azam bus stop</option>
+                        <option>Kimironko/ ALU Entrance</option>
+                        <option>Kimironko/ ALU Car park</option>
+                    </select>
+                    <label>Alpha</label>
+<select class="browser-default" id="alpha">
+  <option value="a,b,c">One</option>
+  <option value="d">Two</option>
+  <option value="e,f">Three</option>
+</select>
+
+<label>Beta</label>
+<select class="browser-default" id="beta">
+  <option value="a">First</option>
+  <option value="b">Second</option>
+  <option value="c">Third</option>
+  <option value="d">Fourth</option>
+  <option value="e">Fifth</option>
+  <option value="f">Sixth</option>
+</select>
+                </form>
 
             </div>
         </div>
