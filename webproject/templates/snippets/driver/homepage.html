@@ -2,7 +2,7 @@
 <style>
     .homepage{max-width: 300px;margin:auto;background-color: #C0C0C0; text-align: center;font-family: Arial, Helvetica, sans-serif; font-size: small;}
     .web-container{height: 520px;border-radius: 10px;background-color:white; text-align:center;} 
-    .form-container{position:relative ;top:-440px;width:280px;left:10px; height:400px;color:#36AE7C;}
+    .form-container{position:relative ;top:-440px;width:80%;left:10%; height:400px;color:#36AE7C;}
     .form-2nd-cont{padding:3px; background-color: azure; height:90%;position: relative;top:2%}
     form{text-align:left; position:relative; width:80%;left:10%; height:90;height:100%;color:#36AE7C;}
     form .details-container{height:90%;}
@@ -23,7 +23,7 @@
             {% include 'snippets/driver/header.html' %}
         </nav>
         <div class="form-container">
-            TRIP DETAILS
+            <strong>TRIP DETAILS</strong>
             <div class="form-2nd-cont">
                 <form name="trip_form" id="trip_form" action="/action_page.php">
                     <div class="details-container">
@@ -34,7 +34,7 @@
                                     <select name="area" id="area"><option value="" selected="selected"><em>Select area</em></option></select>
                                 </div>
                                 <div class="details"> 
-                                    <select name="stops" id="stops"><option value="" selected="selected"><em>Select your first stop</em></option></select>
+                                    <select name="stops1" id="stops"><option value="" selected="selected"><em>Select your first stop</em></option></select>
                                 </div>                       
                             </div>  
                         </div>
@@ -42,10 +42,10 @@
                             <div class="headings">Destination</div>
                             <div class="location">
                                 <div class="details">
-                                    <select name="area" id="area"><option value="" selected="selected"><em>Select area</em></option></select>
+                                    <select name="area1" id="area1"><option value="" selected="selected"><em>Select area</em></option></select>
                                 </div>
                                 <div class="details">                              
-                                    <select name="stops" id="stops"><option value="" selected="selected"><em>Select your last stop</em></option></select>
+                                    <select name="stops1" id="stops1"><option value="" selected="selected"><em>Select your last stop</em></option></select>
                                 </div>
                             </div>  
                         </div>
@@ -102,5 +102,22 @@
             stopsSel.length = 1;
             for (var y in current_location[this.value]) {
               stopsSel.options[stopsSel.options.length] = new Option(y, y);}}}
+                  
+    var destination = {
+        "Remera": {"Ndoli Supermarket": [],"Horebu Supermarket": [],"Bank of Kigali bus stop":[], 
+                   "Amahoro Stadium bus stop":[],"Ex Remera Sector Office bus stop":[],"Kwa Rwahama bus stop":[],"Ex KIE bus stop":[]},
+        "Kimironko": {"Igihozo Supermarket": [],"Equity Bank": [],"eMart":[], "Beri Clinic":[],"Beri Clinic":[],
+                      "Nkubito D.B":[],"Kwa Mushimire Merez Station":[],"Zindiro bus stop":[],"Kwa Ntayinzira bus stop":[],
+                      "Azam roundabout moto stop":[],"Azam bus stop":[],"ALU Entrance":[],"ALU Car park":[]}}
+
+    window.onload = function() {
+        var area1Sel = document.getElementById("area1");
+        var stops1Sel = document.getElementById("stops1");
+        for (var x in destination) {area1Sel.options[area1Sel.options.length] = new Option(x, x);}
+        area1Sel.onchange = function() {
+            stops1Sel.length = 1;
+            for (var y in destination[this.value]) {
+              stops1Sel.options[stops1Sel.options.length] = new Option(y, y);}}}
+
 </script>
 
