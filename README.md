@@ -12,3 +12,8 @@ To run the project
 4. Run command
    py manage.py runserver
    
+
+
+Admin details: 
+  - username: admin
+  - password: Polie12
