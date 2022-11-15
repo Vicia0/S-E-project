@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/base_css.css' %}" >
-<link rel="stylesheet" href = "{% static 'css/Login-createacount-home.css'%}" >
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{% static 'css/login_create_account/login_passenger.css' %}" >
 <body>
     <div class="web-container" >
         <div style="left:10px; width:30px;">
@@ -22,6 +22,11 @@
                     PASSWORD
                     <input name="Password1" type="password" />
                 </div>
+                <a href="{% url 'passenger_homepage' %}"  style="text-align: center;">
+                    <div class="button" >
+                        <div>Login</div>
+                    </div>
+                </a>
                 <a href=""><button name="Driver"> LOGIN</button></a>
                 <div class="content">
                     <p><a href="" >Create Account</a></p>

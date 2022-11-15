@@ -7,7 +7,9 @@ urlpatterns = [
     path('check', check, name = 'check'),
     path('passenger-loginpage', passenger_login, name = 'passenger_login'),
     path('driver-loginpage/', driver_login, name = 'driver_login'),
-    path('driver-homepage/', driver_homepage, name='driver_homepage')
+    path('driver-homepage/', driver_homepage, name='driver_homepage'),
+    path('passenger-homepage/', passenger_homepage, name='passenger_homepage')
+
     #path('passenger-login/', passenger_login, name = 'passenger-login'),
     #path('home', views.home, name='home')
 ]

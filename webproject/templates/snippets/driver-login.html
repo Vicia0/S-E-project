@@ -1,29 +1,13 @@
 <!DOCTYPE html>
 {% load static %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<<<<<<< HEAD
-<link rel="stylesheet" href = "{% static 'css/Login-createacount-home.css'%}" >
-=======
-<style type="text/css">
-    .body-log{max-width: 300px;margin:auto;background-color: #C0C0C0; text-align: center;}
-    .web-container{height: 520px;border-radius: 10px;background-color:white;color:#36AE7C; text-align:center}
-    form{text-align:center; position:relative; width:80%;left:10%; height:90%;top:5%}
-    form h2{font-size: large;}
-    form .email-phn{display:none; position:relative;}
-    form .login-form{width:90%; position:relative; left:5%; top:2%}
-    form .login-form .tab-htm{position:absolute;transform:rotateY(180deg);backface-visibility:hidden;transition:all .4s linear}
-    form .login-form .details{width:195px; position:relative; left:5%;top:15px; text-align:left}
-    form .login-form .details input{display: block;border: none;border-radius: 5px;width: 98%;height: 25px;background-color: rgb(204, 255, 255,0.7)}
-    form .email:checked + .tab + .phone-nb + .tab + .login-form .email-htm{transform:rotate(0);}
-    form .phone-nb:checked + .tab + .login-form .phone-nb-htm{transform:rotate(0);}
-    form .button {text-align: center; height:45px; width:85%; border-radius: 10px;color:white;font-weight: bold;background-color: #36AE7C; border:none; font-style:none;}
-</style>
+<link rel="stylesheet" href = "{% static 'css/login_create_account/login_driver.css'%}" >
 
->>>>>>> a8e58887ee6ecaf2320c115454ea633e93796832
 <body class="body-log">
     <div class="web-container" >
         
             <form method="post" action="">
+				<!--{% csrf_token %}--> <!--Handling CSRF error-->
                 <div style="left:10px; width:30px;">
                     <a style="color:#36AE7C" href="{% url 'home' %}"><i class="fa fa-arrow-left"></i></a>
                 </div>
@@ -56,13 +40,13 @@
 				            <input id="check" type="checkbox">
 				            <label for="check"> Keep me Signed in</label>
 			            </div>
-			            <div style="background-color: purple;">
-				            <a href="{% url 'driver_homepage' %}">
+			            <div style="background-color: purple; text-align: center;" >
+							<a href="{% url 'driver_homepage' %}"><button name="Passenger">PASSENGER</button></a>
+				            <a href="{% url 'driver_homepage' %}"  style="text-align: center;">
 								<div class="button" >
 									<div>Login</div>
 								</div>
 							</a>
-							<button class="button"></button>
 				        </div>
 	                    <p><a href="" >Create Account</a></p>
                         <p><a href="" >Forgot password?</a></p>
