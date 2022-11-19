@@ -1,38 +1,41 @@
-from this import d
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 # @csrf_exempt #csrf errors
 
-#home
-#def index(request,*args,**kwargs):
-
+#HOME
 def home(request):
     context = {}
     #i.e context['webname'] = "RBIS"
     return render(request, "start-page.html", context )
 
-#passenger
-def passenger_login(request):
+
+#CREATE ACCOUNT PAGES 
+def fn_CreateAcc_Passenger(request): #Passenger
     context = {}
-    return render(request, "login-passenger.html", context )
-def passenger_homepage(request):
+    return render(request, "create_account/CreateAccount_Passenger.html", context )
+def fn_CreateAcc_Driverpart1(request): #Driver
     context = {}
-    return render(request, "passenger-homepage.html", context)
+    return render(request, "create_account/CreateAccou-Driverpart1.html", context )
+def fn_CreateAcc_Driverpart2(request): #Driver
+    context = {}
+    return render(request, "create_account/CreateAccou-Driverpart2.html", context )
+
+#LOGIN PAGES 
+def fn_passenger_login(request): #Passenger
+    context = {}
+    return render(request, "login/login-passenger.html", context )
+
+def fn_driver_login(request):
+    context = {}
+    return render(request, "login/login-driver.html", context )
 
 
-#driver
-def driver_login(request):
-    context = {}
-    return render(request, "login-driver.html", context )
-def driver_homepage(request):
-    context = {}
-    return render(request, "driver-homepage.html", context)
-
-#check
+#check connection
 def check(request):
-    return HttpResponse("Hello world!")
-
-"""def home(request):
-    return render(request, r"home.html", {}) """
+    return HttpResponse("Server successfully connected!")
+"""
+def home(request):
+    return render(request, r"home.html", {}) 
+"""
 

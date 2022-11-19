@@ -22,17 +22,17 @@
 			        <div class="tab-htm email-htm">
 				        <div class="details">
 					        <label for="user">USERNAME</label>
-					        <input id="user" type="text"><br>
+					        <input id="user" type="text" name="dr_username"><br>
 					        <label for="pass">PASSWORD</label>
-					        <input id="pass" type="password" data-type="password">
+					        <input id="pass" type="password" data-type="password" name="dr_password">
 				        </div>
 			        </div>
 			        <div class="tab-htm phone-nb-htm">
 				        <div class="details">
 					        <label for="user">PHONE NUMBER</label>
-					        <input id="user" type="text"><br>
+					        <input id="user" type="text" name="dr_phonen"><br>
 					        <label for="pass">PASSWORD</label>
-					        <input id="pass" type="password" data-type="password">
+					        <input id="pass" type="password" data-type="password" name="dr_password">
 				        </div>
 			        </div>
 			        <div style="top:150px; position:relative">
@@ -41,14 +41,13 @@
 				            <label for="check"> Keep me Signed in</label>
 			            </div>
 			            <div style="background-color: purple; text-align: center;" >
-							<a href="{% url 'driver_homepage' %}"><button name="Passenger">PASSENGER</button></a>
 				            <a href="{% url 'driver_homepage' %}"  style="text-align: center;">
 								<div class="button" >
 									<div>Login</div>
 								</div>
 							</a>
 				        </div>
-	                    <p><a href="" >Create Account</a></p>
+	                    <p><a href="{% url 'CreateAccount_Driverpart1' %}" >Create Account</a></p>
                         <p><a href="" >Forgot password?</a></p>
                         <p><a href="" >Help?</a></p>
 	                </div> 

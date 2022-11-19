@@ -17,3 +17,6 @@ To run the project
 Admin details: 
   - username: admin
   - password: Polie12
+
+other requirements:
+ - Install Jinja extension

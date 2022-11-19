@@ -1,5 +1,7 @@
 {% load static %}
-
+<style>
+    .page-group1 label{color:rgb(58, 57, 57); font-size: smaller}
+</style>
 <link rel="stylesheet" href="{% static 'css/passenger/homepage.css' %}">
 
 <body class="homepage">
@@ -33,11 +35,7 @@
                                     <select name="stop_dest" id="stop_dest"><option value="" selected="selected"><em>Select your last stop</em></option></select>
                                 </div>
                             </div>  
-                        </div>
-                        <div class="page-group2">
-                            <div class="headings">Car:</div>
-                            <select name="car" ><option>Select car</option></select>
-                        </div>                                  
+                        </div>                                 
                         <div class="page-group2">
                             <div class="headings">Number of people</div>   
                                 <select name="seats" >
@@ -46,23 +44,21 @@
                                 </select>   
                             </div>
                         <div class="page-group2">
-                            <span class="headings">Departure Date</span> 
-                            <span class="headings" style="position:relative;left:6%">&nbsp;&nbsp;Time</span><br>
-                            <span style="color:rgb(58, 57, 57); font-size: smaller;">
-                                &nbsp;&nbsp;day&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;month&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hour&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; min
-                            </span>                       
-                            <div>
-                                <span>
-                                    <input style="width: 21%;" type="number" min="1" max="31">
-                                    <input style="width: 21%;" type="number" min="1" max="12">                               
-                                </span>
-                                <span style="text-align: right;position:relative;left:6%">
-                                    <input style="width: 21%;" type="number" min="00" max="24">
-                                    <input style="width: 21%;" type="number" min="00" max="60">                               
-                                </span>
-                            </div>                       
-                        </div>  
+                            <div class="headings">Departure Date<br>
+                                <span color:grey>
+                                    <label>&nbsp;&nbsp;&nbsp;&nbsp;Day&nbsp;&nbsp;<input style="width: 21%;" type="number" min="1" max="31"></label>
+                                    <label>&nbsp;&nbsp;&nbsp;&nbsp;Month&nbsp;&nbsp;<input style="width: 21%;" type="number" min="1" max="12"></label>                                   
+                                </span> 
+                            </div>                                       
+                        </div>
+                        <div  class="page-group2">
+                            <div class="headings">Departure Time<br>
+                                <span color:grey>
+                                    <label>&nbsp;&nbsp;&nbsp;&nbsp;Hour <input style="width: 21%;" type="number" min="00" max="24"></label>
+                                    <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Min&nbsp;&nbsp;&nbsp;&nbsp;<input style="width: 21%;" type="number" min="00" max="60"></label>                                   
+                                </span> 
+                            </div>       
+                        </div>        
                     </div>
                     <div class="button-container">
                         <a href="{% url 'passenger_homepage' %}"><input type="submit" class="button" value="Submit"></a>                        

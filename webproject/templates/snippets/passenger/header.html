@@ -19,7 +19,7 @@
     <div id="overlay-nav" class="overlay-menu">
         <div class="overlay-nav">
             <div><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
-                <div class="right-sid"><img alt="" class="img-icon" src="{% static 'images/driver-img.jpg' %}" ></div>
+                <div class="right-sid"><img alt="" class="img-icon" src="{% static 'images/passenger-img.jpg' %}" ></div>
             </div>
             <div class="overlay-menu-content">
                 <a href="#">MY CARS&nbsp;<i class="fa fa-angle-right"></i></a> 
@@ -37,7 +37,8 @@
                 </div>
             </div>
             <div class="right-side">
-                <img alt="" class="img-icon" src="{% static 'images/driver-img.jpg' %}"  >
+                <span><strong> Driver {{name}}</strong></span>
+                <img alt="" class="img-icon" src="{% static 'images/passenger-img.jpg' %}"  >
             </div>
         </div>
         <script>

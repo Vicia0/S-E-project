@@ -11,16 +11,16 @@
                 <p>LOGIN</p>
                 <div class="content" >
                     <a href=""><button name="Passenger" class="btn">Email</button></a>
-	                <a style="color: transparent;">e</a>
+	                <a style="color: transparent;">m</a>
                     <a href=""><button name="Driver" class="btn"> Phone number</button></a>
                 </div>
                 <div class="content" style="text-align:left;
                 padding-bottom: 10%;padding-top: 10%;">
                     PHONE NUMBER
-                    <input name="Text1" type="text"/>
+                    <input name="Text1" type="text" name="pas_phonen"/>
                     <p></p>
                     PASSWORD
-                    <input name="Password1" type="password" />
+                    <input name="Password1" type="password" name="pas_password"/>
                 </div>
                 <a href="{% url 'passenger_homepage' %}"  style="text-align: center;">
                     <div class="button" >
@@ -29,7 +29,7 @@
                 </a>
                 <a href=""><button name="Driver"> LOGIN</button></a>
                 <div class="content">
-                    <p><a href="" >Create Account</a></p>
+                    <p><a href="{% url 'CreateAccount_Passenger' %}" >Create Account</a></p>
                     <p><a href="" >Forgot password?</a></p>
                     <p><a href="" >Help?</a></p>
                 </div>
