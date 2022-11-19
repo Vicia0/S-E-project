@@ -1,8 +1,12 @@
 from django.urls import path
 from webapp.views import *
+from webapp.views_account_creation import *
+from webapp.views_login import *
 from webapp.views_passenger import *
 from webapp.views_driver import *
 from templates import snippets
+
+
 urlpatterns = [
     #path('', views.index, name = 'index'),
     path('', home, name = 'home'),
