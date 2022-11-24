@@ -1,22 +1,20 @@
 # S-E-project
-figma design: 
-https://www.figma.com/file/sUAbvK5nvqO7PwMA17kFol/Share-Ride?node-id=0%3A1
+1. figma design: 
+   - https://www.figma.com/file/sUAbvK5nvqO7PwMA17kFol/Share-Ride?node-id=0%3A1
+2. Github link: 
+   - 
+
 
 To run the project
-1. Make sure Django is installed (pip install django)
-2. Optional()
-   Install virtual environment (virtualenv venv)
-   Run (venv\Scripts\activate)
-   Run django inside (pip install django)
-3. \webproject
+1. Make sure Django is installed 
+   - pip install django
+2. Optional( Using virtual env to run)
+   Install virtual environment 
+     - pip install virtualenv
+     - virtualenv venv
+     - venv\Scripts\activate
+   Run django inside 
+     - pip install django
 4. Run command
-   py manage.py runserver
-   
-
-
-Admin details: 
-  - username: admin
-  - password: Polie12
-
-other requirements:
- - Install Jinja extension
+     - \webproject
+     - py manage.py runserver

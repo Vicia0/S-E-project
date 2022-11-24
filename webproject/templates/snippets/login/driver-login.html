@@ -6,7 +6,8 @@
 <body class="body-log">
     <div class="web-container" >
         
-            <form method="post" action="">
+		<form method="POST" action="">
+				{% csrf_token %}
 				<!--{% csrf_token %}--> <!--Handling CSRF error-->
                 <div style="left:10px; width:30px;">
                     <a style="color:#36AE7C" href="{% url 'home' %}"><i class="fa fa-arrow-left"></i></a>
@@ -22,23 +23,26 @@
 			        <div class="tab-htm email-htm">
 				        <div class="details">
 					        <label for="user">USERNAME</label>
-					        <input id="user" type="text" name="dr_username"><br>
+					        <input id="user" type="text" name="username" placeholder="Username..."><br>
 					        <label for="pass">PASSWORD</label>
-					        <input id="pass" type="password" data-type="password" name="dr_password">
+					        <input id="pass" type="password" data-type="password" name="password" placeholder="Password...">
 				        </div>
 			        </div>
 			        <div class="tab-htm phone-nb-htm">
 				        <div class="details">
 					        <label for="user">PHONE NUMBER</label>
-					        <input id="user" type="text" name="dr_phonen"><br>
+					        <input id="user" type="text" name="dr_phonen" placeholder="Phone number..."><br>
 					        <label for="pass">PASSWORD</label>
-					        <input id="pass" type="password" data-type="password" name="dr_password">
+					        <input id="pass" type="password" data-type="password" name="dr_password" placeholder="Password...">
 				        </div>
 			        </div>
+
 			        <div style="top:150px; position:relative">
 	                    <div>
 				            <input id="check" type="checkbox">
 				            <label for="check"> Keep me Signed in</label>
+							{% csrf_token %}
+							<input type="submit" name="LOGIN">{% csrf_token %}
 			            </div>
 			            <div style="background-color: purple; text-align: center;" >
 				            <a href="{% url 'driver_homepage' %}"  style="text-align: center;">
@@ -47,6 +51,9 @@
 								</div>
 							</a>
 				        </div>
+						{% for message in messages %}
+						    <p id="messages">{{message}}</p>
+						{%endfor%}
 	                    <p><a href="{% url 'CreateAccount_Driverpart1' %}" >Create Account</a></p>
                         <p><a href="" >Forgot password?</a></p>
                         <p><a href="" >Help?</a></p>
