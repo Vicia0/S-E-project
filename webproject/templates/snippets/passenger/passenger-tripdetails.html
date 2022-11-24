@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="{% static 'css/base_css.css' %}" >
+<link rel="stylesheet" href = "{% static 'css/Login-createacount-home.css'%}" >
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+<style type="text/css">
+.content_area{
+    height: 100vh;
+}
+.header-1 img{
+    width: 3%;
+    border: 1px solid #36AE7C;
+    padding: 3px;
+    border-radius: 100%;
+    align-self: start;   
+}
+.header-1 i{
+    font-size: 20px;
+    
+}
+.header-1{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 230px;
+    position: relative;
+    top: 50px;
+}
+.title h2{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 125%;
+    text-align: center;
+    text-transform: uppercase;
+    color: #36AE7C;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    position: relative;
+    top: 50px;
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 30px;
+    position: relative;
+    top: 80px;
+}
+.header button{
+    background-color: white;
+    border: none;
+    width: 120px;
+    height: 39px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 125%;  
+}
+#driving-div,#riding-div{
+    background-color: white;
+    padding: 2px;
+    border-radius: 10px;
+}
+.driving button{
+    background-color: #36AE7C;
+    color: white;
+    border-radius: 15px;
+}
+.p {
+    font-family: Arial;
+    font-weight: bold;
+}
+.checkbox:checked + .toggle::after {
+    left : 49px;
+}
+.checkbox:checked + .toggle {
+    background-color: white;
+}
+.checkbox {
+    display : none;
+}
+#origin,.Destination{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    background: #FFFFFF;
+border-radius: 20px;
+
+/* Inside auto layout */
+
+flex: none;
+order: 3;
+align-self: stretch;
+flex-grow: 0;
+}
+#origin h5,.Destination h5{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%;
+    text-transform: uppercase;
+    color: #36AE7C;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0;
+    padding: 0px;
+    gap: 8px;
+    opacity: 0.8;
+    flex: none;
+    order: 0;
+    align-self: stretch;
+}
+#origin select,.Destination select{
+    width: 100%;
+    border: none;
+    width: 222px;
+    height: 20px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 125%;
+    color: black;
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+    
+}
+  
+.form-trip-details{
+    grid-area: form-trip;   
+}
+.Date input{
+    border: 0;
+    float: right;
+    border-left: 1px solid black;
+    color: #36AE7C;
+}
+.Time input{
+    border: 0;
+    float: right;
+    border-left: white;
+    color: #36AE7C;
+}
+.form_group{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    width: 100%;
+    border-radius: 8px;
+    flex: none;
+    order: 6;
+    align-self: stretch;
+    flex-grow: 0;
+    row-gap: 10px;
+    position: relative;
+    top: 30px;
+
+}
+.Date input{
+    border: 0px;
+    width: 85%;
+    height: 20px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 125%;
+}
+.Date,.Time{
+    display: flex;
+    flex-direction: column;
+}
+.date-time{
+    display: flex;
+    flex-direction: row;
+    column-gap: 50px;
+}
+
+
+</style>
+<body style="color: #36AE7C;max-width: 300px;margin:auto;font-family: Arial, Helvetica, sans-serif;">
+    <div class="web-container" >
+        <div class="content_area">
+
+            <div class="header-1">
+                <i class="fa fa-list"></i>
+                <img class = "avatar1" src="https://res.cloudinary.com/dpfaapjtt/image/upload/v1658398235/personal%20pictures/woman_1_mxe59e.png" alt="an avatar of a gendered woman">
+            </div>
+            <div class="title"><h2>Stops</h2></div>
+            <div class="header">
+            </div>   
+                <br>    
+                <div class="form_group">
+                    <br>
+                    <form class="create_ride_form2" action="ride creation">
+                        <br>
+                        <div id="origin">
+                            <h5>Origin</h5>
+                            <select>
+                                    <option>Remera/ Gisimenti bus stop</option>
+                                    <option>Remera/ National stadium</option>
+                                    <option>Remera/ Police station</option>
+                                    <option>Kimironko/ Simba supermarket</option>
+                                    <option>Kimironko markert Bus park</option>
+                                    <option>BK ATM</option>
+                                    <option>Prison - Nkubito DB</option>
+                                    <option>Kwa Mushimire Merez Petrl station </option>
+                                    <option>Kwa Ntayinzira bus stop</option>
+                                    <option>Azam Roundabout- Bus stop</option>
+                                    <option>Azam Roundabout- moto stop</option>
+                                    <option>Kimironko/ Azam bus stop</option>
+                                    <option>Kimironko/ ALU Entrance</option>
+                                    <option>Kimironko/ ALU Car park</option>
+                            </select>    
+                        </div>
+                        <br>
+                        <div class="Destination">
+                            <h5>Destination</h5>
+                            <select>
+                                <option>Remera/ Gisimenti bus stop</option>
+                                <option>Remera/ National stadium</option>
+                                <option>Remera/ Police station</option>
+                                <option>Kimironko/ Simba supermarket</option>
+                                <option>Kimironko markert Bus park</option>
+                                <option>BK ATM</option>
+                                <option>Prison - Nkubito DB</option>
+                                <option>Kwa Mushimire Merez Petrl station </option>
+                                <option>Kwa Ntayinzira bus stop</option>
+                                <option>Azam Roundabout- Bus stop</option>
+                                <option>Azam Roundabout- moto stop</option>
+                                <option>Kimironko/ Azam bus stop</option>
+                                <option>Kimironko/ ALU Entrance</option>
+                                <option>Kimironko/ ALU Car park</option>
+                            </select> 
+                        </div>
+                        <br>
+                        <div class="date-time">
+                            <div class="Date">
+                                <label style="color: #36AE7C" for="date">Date</label>
+                                <input style="color:black" type="date" name="date" placeholder="Date">
+                            </div>
+                            <div class="Time">
+                                <label style="color:#36AE7C" for="time">Time</label>
+                                <input style="color:black" type="time" name="time" placeholder="Time">
+                            </div>
+                        </div>
+                        <br>
+                        <div id="form_group">
+                            <label for="">Number of People</label>
+                            <input style="border: 0;" placeholder="0+" type="number">
+                        </div>
+                        <br>
+                        <br>
+                        
+                        <div class="form-trip-details">
+                            <button style="display: flex;justify-content: center;padding: 16px;color: white;
+                            gap: 10px;width: 150px;height: 50px;background: #36AE7C;border-radius: 20px;flex: none;order: 0;flex-grow: 1;border: #36AE7C;margin-left: 50px;" type="button" onclick="window.location.href='passenger-login.html';"class="success">Submit</button>
+                            <!--<input type="Submit" id="submit" value="Submit" class="success">-->
+                        </div>
+                    </form>
+                
+            </div> 
+	</div>
+</body>
