@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+{% load static %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href = "{% static 'css/login_create_account/create_acc_driver.css'%}" >
+<style>
+    .body-log{max-width: 300px;margin:auto;background-color: #C0C0C0; text-align: center;}
+    .web-container{height: 520px;border-radius: 10px;background-color:white;color:#36AE7C; text-align:center}
+    form{text-align:center; position:relative; width:80%;left:10%; height:90%;top:3%}
+    form h2{font-size: large;}
+    form .create-acc-form{width:90%; position:relative; left:5%; top:0%}
+    form .create-acc-form .tab-htm{position:absolute;transform:rotateY(180deg);backface-visibility:hidden;transition:all .4s linear}
+    form .create-acc-form .details{width:195px; position:relative; left:5%;text-align:left}
+    form .create-acc-form .details input{display: block;border: none;border-radius: 5px;width: 98%;height: 22px;background-color: rgb(204, 255, 255,0.7);}
+    form .create-acc-form .details .item{height: 49px;}
+    form .button {text-align:center ; height:45px; width:85%; border-radius: 10px;color:white;font-weight: bold;background-color: #36AE7C; border:none}
+</style>
+<body class="body-log">
+    <div class="web-container" >
+            <form method="POST" action="">
+                {% csrf_token %}
+				<!--{% csrf_token %}--> <!--Handling CSRF error-->
+                <div style="left:10px; width:30px;">
+                    <a style="color:#36AE7C" href="{% url 'driver_login' %}"><i class="fa fa-arrow-left"></i></a>
+                </div>
+                <h2> CREATE ACCOUNT</h2>
+                <!--
+                <button name="Abutton1">button</button>
+                <button name="Abutton1">button</button> -->       
+		        <div class="create-acc-form">
+				    <div class="details" >
+                        <div class="item">
+				            <!--{{form.username.label}}
+				            {{form.username}}<br> -->
+                            <label for="user">Username *</label>
+			    	        <input id="user" type="text" name="dr_username"><br>
+                        </div>
+                        <div class="item">
+                            <label for="user">First Name *</label>
+			    	        <input id="user" type="text" name="dr_firstname"><br>
+                        </div>
+                        <div class="item">
+                            <label for="user">Last Name *</label>
+			    	        <input id="user" type="text"  name="dr_lastname"><br>
+                        </div>
+                        <div class="item">
+                            <label for="user">Email *</label>
+			    	        <input id="user" type="text"  name="dr_email"><br>
+                        </div>
+                        <div class="item">
+                            <label for="user">Phone number *</label>
+		    		        <input id="user" type="text" name="dr_phonenumber"><br>
+                        </div>
+                        <div class="item">
+                            <label for="user">Password *</label>
+		    		        <input id="user" type="password" name="dr_password1"><br>
+                        </div>
+                        <div class="item">
+                            <label for="user">Comfirm password *</label>
+		    		        <input id="user" type="password" name="dr_password2"><br>
+                        </div>
+				    </div>
+                    <input type="submit" name="Create Account">
+                    {% for message in messages %}
+                        <p id="messages">{{message}}</p>
+                    {%endfor%}
+                    {{form.errors}}
+			        <div style="top:20%; position:relative">
+				        <a href="{% url 'CreateAccount_Driverpart2' %}"  style="text-align: center;">
+							<div class="button" style="width:100%" >
+								<div style="font-style:none">
+                                    &nbsp&nbsp&nbsp&nbspNEXT &nbsp &nbsp
+                                    <i class="fa fa-angle-right"></i>
+                                    <i class="fa fa-angle-right"></i>
+                                </div>
+							</div>
+						</a>
+	                </div> 
+                    <p>Already have an account? <a href="{%url 'driver_login'%}">Login</a></p>
+		        </div>  
+	        </form>  
+	</div>
+    <script>
+        var form_fields = document.getElementsByTagName('input')
+        form_fields['dr_username'].placeholder='Username...';
+        form_fields['dr_firstname'].placeholder='First Name...';
+        form_fields['dr_lastname'].placeholder='Last Name...';
+        form_fields['dr_email'].placeholder='Email...';
+        form_fields['dr_phonenumber'].placeholder='Phone Number...';
+        form_fields['dr_password1'].placeholder='Enter password...';
+        form_fields['dr_password2'].placeholder='Comfirm password...';
+        for(var field in form_fields){
+            form_fields[field].className == 'form-control'
+        }
+    </script>
+</body>
+

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+{% load static %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href = "{% static 'css/login_create_account/create_acc_driver.css'%}" >
+<style>
+    .details input{height:40px}
+    .body-log{max-width: 300px;margin:auto;background-color: #C0C0C0; text-align: center;}
+    .web-container{height: 520px;border-radius: 10px;background-color:white;color:#36AE7C; text-align:center}
+    form{text-align:center; position:relative; width:80%;left:10%; height:90%;top:3%}
+    form h2{font-size: large;}
+    form .create-acc-form{width:90%; position:relative; left:5%; top:0%}
+    form .create-acc-form .tab-htm{position:absolute;transform:rotateY(180deg);backface-visibility:hidden;transition:all .4s linear}
+    form .create-acc-form .details{width:195px; position:relative; left:5%;text-align:left}
+    form .create-acc-form .details input,form .create-acc-form .details select {display: block;border: none;border-radius: 5px;width: 98%;height: 22px;background-color: rgb(204, 255, 255,0.7)}
+    form .create-acc-form .details .item{height: 49px;}
+    form .button {text-align:center ; height:45px; width:85%; border-radius: 10px;color:white;font-weight: bold;background-color: #36AE7C; border:none}
+</style>
+<body class="body-log">
+    <div class="web-container" >
+            <form method="post" action="">
+				<!--{% csrf_token %}--> <!--Handling CSRF error-->
+                <div style="left:10px; width:30px;">
+                    <a style="color:#36AE7C" href="{% url 'CreateAccount_Driverpart1' %}"><i class="fa fa-arrow-left"></i></a>
+                </div>
+                <h2> CREATE ACCOUNT</h2>
+                <!--
+                <button name="Abutton1">button</button>
+                <button name="Abutton1">button</button> -->       
+		        <div class="create-acc-form">
+				    <div class="details" >
+				        <label for="user">Identification</label>
+				        <input id="user" type="text"><br>
+                        <label for="user">CAR DETAILS</label>
+                        <div style="width: 96%;position:relative;left:2%;top:3%">
+                            <br>
+                            <div>
+                                <label for="user">Type of car</label>
+                                <select>
+                                    <option value="0">Select car:</option>
+                                    <option value="1">Audi</option><option value="2">BMW</option>
+                                    <option value="3">Citroen</option><option value="4">Ford</option>
+                                    <option value="5">Honda</option><option value="6">Jaguar</option>
+                                    <option value="7">Land Rover</option><option value="8">Mercedes</option>
+                                    <option value="9">Nissan</option><option value="10">Toyota</option>
+                                </select>
+                            </div>
+                            <div class="item">
+                                <br>
+                                <label for="user">Car Plate</label><br>
+                                <input id="user" type="text"><br>
+                            </div>
+                            <div class="item">
+                                <br>
+                                <label for="user">Car color</label>
+                                <select>
+                                    <option value="0">Select color:</option>
+                                    <option value="1">Brown</option><option value="2">Red</option>
+                                    <option value="3">Orange</option><option value="4">Yellow</option>
+                                    <option value="5">Green</option><option value="6">Blue</option>
+                                    <option value="7">Grey</option><option value="8">Purple</option>
+                                </select>
+                            </div>
+                            <div class="item">
+                                <br>
+                                <label for="user">Car Description</label><br>
+                                <input id="user" type="text"><br>
+                            </div>
+                        </div>
+				    </div>
+			        <div style="top:50px; position:relative">
+				        <a href="{% url 'driver_login' %}"  style="text-align: center;">
+							<div class="button" style="width:100%" >
+								<div>CREATE ACCOUNT</div>
+							</div>
+						</a>
+	                </div> 
+		        </div>  
+	        </form>  
+	</div>
+</body>
+
