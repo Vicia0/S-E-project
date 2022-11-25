@@ -1,12 +1,21 @@
 {% extends "snippets/createaccount/Createaccount-template.html" %}
 {% block content %}
-    {% load static %}
-    <link rel="stylesheet" href = "{% static 'css/login_create_account/create_acc.css'%}" >
+<style>
+    .registration_heading{background-color:blueviolet}
+    .registration_heading .back, .registration_heading .h2{width:100%}
+    .registration_heading .back{position: relative;width:50%; background-color: antiquewhite;left: 5px;}
+    .registration_heading .h2{position: relative;width:50%;background-color: orange;text-align: center;right:0; left:40px}
+    .registration_heading a{color:#36AE7C}
+    .nav{height:10%; width: 100%;left: 0;position:relative;background-color:blueviolet}
+    .nav .right-side, .nav .left-side{list-style-type: none; width: 90%;top:5px;margin:auto; position:relative}
+    .nav .right-side{position:relative; text-align:right;right:8px}
+    .nav .left-side{text-align: left;position:relative;left:8px}  
+</style>
     <form method="POST" action="">
         {% csrf_token %}
         <div class="nav">
-            <a href="{% url 'driver_login' %}" class="left_side"><i class="fa fa-arrow-left">-</i></a>
-            <h2 class="right_side"> CREATE ACCOUNT</h2>  
+            <div class="right-side"><a href="{% url 'driver_login' %}"><i class="fa fa-arrow-left"></i></a></div>
+            <div class="left-side"><h2> CREATE ACCOUNT</h2></div>   
         </div> 
 		<div class="create-acc-form">
 			<div class="details" >

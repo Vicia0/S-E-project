@@ -1,17 +1,23 @@
-from django.http import HttpResponse
 from django.shortcuts import render,redirect
-from django.views.decorators.csrf import csrf_exempt
-# @csrf_exempt #csrf errors
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login,logout
-
 from django.contrib import messages
 from .models import Create_Driver
-
+from django.views.generic import CreateView
+from .models import Passengers
+from .forms import CreatePassengerForm
 #views
 #from .models import CreateDriverForm #, CreateCarForm
 import re
 regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+
+class fn_CreateAcc_Passenger(CreateView): #Passenger
+    model = Passengers
+    form_class = CreatePassengerForm
+    #success_url = pass
+    template_name = 'create_account/CreateAccount_Passenger.html'
+"""    context = {}
+    return render(request, "create_account/CreateAccount_Passenger.html", context )
+"""
 
 #Driver part 1
 def fn_CreateAcc_Driverpart1(request): 
@@ -21,6 +27,7 @@ def fn_CreateAcc_Driverpart1(request):
         dr_username = request.POST.get('dr_username'); dr_firstname = request.POST.get('dr_firstname');dr_lastname = request.POST.get('dr_lastname')
         dr_email = request.POST.get('dr_email');dr_phonenumber = request.POST.get('dr_phonenumber')
         dr_password1= request.POST.get('dr_password1');dr_password2=request.POST.get('dr_password2')
+        
         if (dr_username=="" or dr_firstname=="" or dr_lastname=="" or dr_lastname=="" or dr_email=="" or dr_phonenumber=="" or dr_password1==""):
             messages.info(request,"Important fields are missing")
         else:
@@ -45,18 +52,6 @@ def fn_CreateAcc_Driverpart1(request):
     context = {}
     return render(request, "create_account/CreateAccou-Driverpart1.html", context)
 
-    """
-    form = CreateDriverForm()
-    if request.method=="POST":
-        form = CreateDriverForm(request.POST)
-        if form.is_valid():
-            form.save()
-            driver = form.cleaned_data.get('username')
-            messages.success(request,"Account successfully created for " + driver)
-            return redirect('driver_login')
-    context = {'form':form}
-    """
-
 #Driver part 2
 def fn_CreateAcc_Driverpart2(request):
     """
@@ -72,7 +67,3 @@ def fn_CreateAcc_Driverpart2(request):
     return render(request, "create_account/CreateAccou-Driverpart1.html", context)
 
 
-#CREATE ACCOUNT PAGES 
-def fn_CreateAcc_Passenger(request): #Passenger
-    context = {}
-    return render(request, "create_account/CreateAccount_Passenger.html", context )

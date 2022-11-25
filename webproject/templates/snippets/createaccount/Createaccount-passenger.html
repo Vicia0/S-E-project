@@ -1,15 +1,42 @@
-<!DOCTYPE html>
-{% load static %}
-<link rel="stylesheet" href = "{% static 'css/login_create_account/create_acc_passenger.css'%}" >
-
-<body>
-    <div class="web-container" >
-        <div style="left:10px; width:30px;">
-            <a style="color:#36AE7C" href="{% url 'home' %}"><i class="fa fa-arrow-left"></i></a>
+{% extends "snippets/createaccount/Createaccount-template.html" %}
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet" href = "{% static 'css/login_create_account/create_acc.css'%}" >
+    <form method="POST" action="">
+        {% csrf_token %}
+        <div class="nav">
+            <a href="{% url 'passenger_login' %}" class="left_side"><i class="fa fa-arrow-left">-</i></a>
+            <h2 class="right_side"> CREATE ACCOUNT</h2>  
+        </div> 
+        <div class="create-acc-form">
+	  	    <div class="details" >
+                {% for field in form %}
+                    <div class="item">
+			            {{field.label_tag }}<br>
+                        {{field}}
+                        {% for error in field.errors %}
+                            <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+            <div style="position: relative; top:60px">
+                <input type="submit" value="Register" class="button" > 
+            </div>
         </div>
-            <form method="post" action=""class="login-page" > 
-
-            </form>
-	</div>
-</body>
+	</form>
+    <script>
+        var form_fields = document.getElementsByTagName('input')
+        form_fields['username'].placeholder='username ... ';
+        form_fields['firstname'].placeholder='first name ...';
+        form_fields['last_name'].placeholder='last name ...';
+        form_fields['email'].placeholder='account@gmail.com...';
+        form_fields['1'].placeholder='078...';
+        form_fields[5].placeholder='********';
+        form_fields['password2'].placeholder='********';
+        for(var field in form_fields){
+            form_fields[field].className == 'form-control'
+        }
+    </script>  
+{% endblock content %}
 

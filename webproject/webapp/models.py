@@ -1,7 +1,10 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
-
+class Passengers(AbstractUser):
+    age = models.PositiveSmallIntegerField(null=True,blank=True)
+    phonenumber = models.PositiveBigIntegerField(null=True,blank=True)
 class Create_Driver(models.Model):
     username = models.CharField(max_length=255)
     firstname = models.CharField(max_length=255)
@@ -9,7 +12,7 @@ class Create_Driver(models.Model):
     email = models.CharField(max_length=255)
     phonenumber = models.CharField(max_length=255)
     password= models.CharField(max_length=255)
-    
+    fields = ['username','first_name','last_name','phonenumber','email','password1','password2']
     def __str__(self):
         return self.username
 

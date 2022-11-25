@@ -13,6 +13,12 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 import os
 
+
+#Added 
+#Fixing clashes between user permissions
+AUTH_USER_MODEL = "webapp.Passengers"
+#AUTH_USER_MODEL = 'YourAppName.YourClassName'
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 #BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
