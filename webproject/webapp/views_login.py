@@ -14,8 +14,6 @@ def fn_driver_login(request):
         password= request.POST.get('password')
         user = authenticate(request, username=username, password=password)
         if user is not None:
-            messages.info(request,"Username: "+username)
-            messages.info(request,"Password: "+password)
             login(request, user)
             return redirect('driver_homepage')
         else:

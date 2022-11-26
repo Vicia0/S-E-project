@@ -64,6 +64,6 @@ def fn_CreateAcc_Driverpart2(request):
     context = {'form':form}
     """
     context = {}
-    return render(request, "create_account/CreateAccou-Driverpart1.html", context)
+    return render(request, "create_account/CreateAccou-Driverpart2.html", context)
 
 

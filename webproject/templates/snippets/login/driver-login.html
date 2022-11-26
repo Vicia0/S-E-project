@@ -30,10 +30,10 @@
 					<input id="check" type="checkbox">
 					<label for="check"> Keep me Signed in</label><br>
 				</div>
-				<input type="submit" value="Login" class="button" > 
 				{% for message in messages %}
-					<p id="messages">{{message}}</p>
+					<p style="color:rgb(173, 5, 5);" id="messages">{{message}}</p>
 				{%endfor%}
+				<input type="submit" value="Login" class="button" > 
 				<p><a href="{% url 'CreateAccount_Driverpart1' %}" >Create Account</a></p>
 				<p><a href="" >Forgot password?</a></p>
 				<p><a href="" >Help?</a></p>

@@ -9,6 +9,7 @@
             <h2 class="right_side"> CREATE ACCOUNT</h2>  
         </div> 
 		<div class="create-acc-form">
+            Already have an account? <a href="{%url 'driver_login'%}">Login</a>
 			<div class="details" >
                 <div class="item">
                     <label for="user">Username *</label>
@@ -45,7 +46,6 @@
             {%endfor%}
             {{form.errors}}
 
-            <p>Already have an account? <a href="{%url 'driver_login'%}">Login</a></p>
 		</div>  
 	</form>  
     <script>
