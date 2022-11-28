@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="{% static 'css/base.css' %}" >
+<head><script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script></head>
+<style type="text/css">
+    .base-body{max-width: 300px;margin:auto;background-color:white; text-align: center;}
+    .web-container{height: 520px;border-radius: 10px;background-color:white;color:#36AE7C; text-align:center}
+    .start-page{width: 80%; height: 60%; position: relative; left: 10%; top: 20%;text-align: center;}
+    .start-page button {text-align: center; height:45px; width:200px; border-radius: 10px;color:white;font-weight: lighter;
+       position: relative;top: 10%; bottom: 5px;background-color: #36AE7C;}
+    img{width:100%}
+</style>
+<style burger>
+    .container {
+      display: inline-block;
+      cursor: pointer;
+    }
+    
+    .bar1, .bar2, .bar3 {
+      width: 35px;
+      height: 5px;
+      background: #36AE7C;;
+      margin: 6px 0;
+      transition: 0.4s;
+    }
+    
+    .change .bar1 {
+      transform: translate(0, 11px) rotate(-45deg);
+    }
+    
+    .change .bar2 {opacity: 0;}
+    
+    .change .bar3 {
+      transform: translate(0, -11px) rotate(45deg);
+    }
+    </style>
+<style serach>
+  .top-bar {
+    height: 35px;
+    width: 100%;
+    padding-top: 5px;
+    background-color: #f5f5f5;
+}
+.search-container {
+    max-width: 950px;
+    margin: auto;
+    padding-right: 10px;
+}
+.search {
+    border-radius: 5px;
+    border: 0px ;
+    padding: 5px;
+    width: 75px;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    transition: all .5s ease;
+    float: right;
+    margin-right: 75px;
+    margin-top: -30px;
+}
+.search:focus {
+    width: 150px;
+}
+.search:focus ~ button {
+    display:none;
+}
+</style>
+
+<body class="base-body">
+    <div style="margin: auto" class="web-container">
+        <div style="margin-top: 50px; margin-right: 150px;" class="container" onclick="myFunction(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+          
+          <script>
+          function myFunction(x) {
+            x.classList.toggle("change");
+          }
+          </script>
+          <img style="margin-left: 45px; box-sizing: border-box;width: 39px;height: 40px;border: 2px solid #36AE7C;border-radius: 50px;width: 15%;" class = "avatar1" src="https://res.cloudinary.com/dpfaapjtt/image/upload/v1658398235/personal%20pictures/woman_1_mxe59e.png" alt="an avatar of a gendered woman">
+        <h3>Rider's Details</h3><br><br>
+        <div>
+          <img style="margin-right: auto; width: 40px;" class = "avatar1" src="https://res.cloudinary.com/dpfaapjtt/image/upload/v1658398235/personal%20pictures/woman_1_mxe59e.png" alt="an avatar of a gendered woman"></img>
+          <i style="color: black;" class="fas fa-car"></i>
+          <h4>Name: Diane</h4>
+          <h4 style="margin-top: auto;">Car model:Benz</h4>
+          <h4>Plate number:xxxx</h4>
+          <h4>Seats available:2</h4>
+          <h4>Drop-off spots:<select style="border: 0;margin-left: auto;margin-top: auto;color: #36AE7C;">
+            <option value="Kisimenti">Kisimenti</option>
+            <option value="Kimironko bus station">Simba</option>
+            <option value="Mushimire">Mushimire</option>
+            <option value="Kwa Nahinzira">Nahinzira</option>
+            <option value="Azam round about">Azam</option>
+            <option value="ALU">ALU</option> 
+          </select></h4>
+          <p style="margin: auto;"> <time> <h4>Leaving time: 8:30 am</h4><time> </p>
+         </div><br><br>
+         <div>
+          <button style="display: flex;justify-content: center;padding: 16px;color: black;
+          gap: 10px;width: 200px;height: 44px;background: #36AE7C;border-radius: 20px;flex: none;order: 0;flex-grow: 1;border: #36AE7C;margin: auto;" type="button" onclick="window.location.href='passenger-login.html';"class="success">Request ride</button>
+        </div>
+       
+
+    </div>
+             
+       
+
+</body>
