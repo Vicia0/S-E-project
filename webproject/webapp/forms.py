@@ -57,5 +57,3 @@ class Driver_Register(UserCreationForm):
         fields = ('username','full_name','License_ID', 'email', 'phone_number','password1', 'password2', 'is_driver')
 
 
-class online_Drivers():
-    username
