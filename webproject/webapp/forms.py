@@ -1,27 +1,61 @@
-from django.forms import ModelForm
-from django.contrib.auth.forms import UserCreationForm,UserChangeForm
 from django import forms
-from django.contrib.auth.models import User
-from .models import Passengers
+from django.contrib.auth.forms import UserCreationForm
+from .models import User
 
+class LoginForm(forms.Form):
+    username = forms.CharField(widget= forms.TextInput(attrs={"class": "form-control"}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={"class": "form-control"}))
 
-class CreatePassengerForm(UserCreationForm):
-    class Meta(UserCreationForm.Meta):
-        model = Passengers
-        fields = ['username','email', 'age', 'phonenumber', 'password1','password2']
+class SignUpForm(UserCreationForm):
+    username = forms.CharField(
+        widget=forms.TextInput(attrs={"class": "form-control"}))
+    password1 = forms.CharField(
+        widget=forms.PasswordInput(attrs={"class": "form-control"}))
+    password2 = forms.CharField(
+        widget=forms.PasswordInput(attrs={"class": "form-control"}))
+    email = forms.CharField(
+        widget=forms.TextInput(attrs={"class": "form-control"}))
 
-class PassengerChangeForm(UserChangeForm):
-    class Meta:
-        model = Passengers
-        fields = UserChangeForm.Meta.fields
-
-class CreateDriverForm(UserCreationForm):
-    class Meta: 
-        model = User
-        fields = ['username','email','password1','password2']
-"""
-class CreateCarForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ['username', 'email']
-"""
+        fields = ('username', 'email', 'password1', 'password2','is_admin', 'is_driver', 'is_passenger')
+
+class Passenger_Register(UserCreationForm):
+    username = forms.CharField(
+        widget=forms.TextInput(attrs={"class": "form-control"}))
+    full_name = forms.CharField(
+        widget=forms.TextInput(attrs={"class": "form-control"}))
+    email = forms.CharField(
+        widget=forms.TextInput(attrs={"class": "form-control"}))
+    phone_number = forms.CharField(
+        widget=forms.TextInput(attrs={"class": "form-control"}))
+    password1 = forms.CharField(
+        widget=forms.PasswordInput(attrs={"class": "form-control"}))
+    password2 = forms.CharField(
+        widget=forms.PasswordInput(attrs={"class": "form-control"}))
+    class Meta:
+        model = User
+        fields = ('username', 'full_name','email', 'phone_number','password1', 'password2', 'is_passenger')
+
+class Driver_Register(UserCreationForm):
+    username = forms.CharField(
+        widget=forms.TextInput(attrs={"class": "form-control"}))
+    License_ID = forms.CharField(
+        widget=forms.TextInput(attrs={"class": "form-control"})) 
+    full_name = forms.CharField(
+        widget=forms.TextInput(attrs={"class": "form-control"}))
+    password1 = forms.CharField(
+        widget=forms.PasswordInput(attrs={"class": "form-control"}))
+    password2 = forms.CharField(
+        widget=forms.PasswordInput(attrs={"class": "form-control"}))
+    email = forms.CharField(
+        widget=forms.TextInput(attrs={"class": "form-control"}))
+    phone_number = forms.CharField(
+        widget=forms.TextInput(attrs={"class": "form-control"}))
+    class Meta:
+        model = User
+        fields = ('username','full_name','License_ID', 'email', 'phone_number','password1', 'password2', 'is_driver')
+
+
+class online_Drivers():
+    username

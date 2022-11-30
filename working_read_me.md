@@ -38,3 +38,6 @@ ________________________________________________________________________________
 
 # CMD COMMANDS
 - cd ../ : Go back
+
+# VENV USEFUL COMMANDS
+- python -m black . : for reformating the files

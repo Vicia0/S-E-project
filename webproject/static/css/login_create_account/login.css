@@ -13,5 +13,8 @@ form .email:checked + .tab + .phone-nb + .tab + .login-form .email-htm{transform
 form .phone-nb:checked + .tab + .login-form .phone-nb-htm{transform:rotate(0);}
 form .button {text-align:center ; height:45px; width:85%; border-radius: 10px;color:white;font-weight: bold;background-color: #36AE7C; border:none}
 
-form .down-content{top:130px; position:relative}
+form .down-content{top:290px; position:fixed;width: 200px}
 form .check{position: relative;left:7px; text-align:left; height:40px}
+
+/* Errors */
+form .login-form .errors{color:rgb(173, 5, 5);}

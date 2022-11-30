@@ -1,8 +1,5 @@
-{% extends "snippets/createaccount/Createaccount-template.html" %}
+{% extends "snippets/login/login-template.html" %}
 {% block content %}
-<style>
-
-</style>
     {% load static %}
     <link rel="stylesheet" href = "{% static 'css/login_create_account/login.css'%}" >
 	<form method="POST" action="">
@@ -25,15 +22,15 @@
 					<label for="pass">PASSWORD</label><input id="pass" type="password" data-type="password" name="dr_password">
 				</div>
 			</div>
+			{% for message in messages %}
+		    	<p class="errors" id="messages">{{message}}</p>
+	    	{%endfor%}
 			<div class="down-content">
-				<div class="check">
+				<div class="check" >
 					<input id="check" type="checkbox">
 					<label for="check"> Keep me Signed in</label><br>
 				</div>
 				<input type="submit" value="Login" class="button" > 
-				{% for message in messages %}
-					<p id="messages">{{message}}</p>
-				{%endfor%}
 				<p><a href="{% url 'CreateAccount_Passenger' %}" >Create Account</a></p>
 				<p><a href="" >Forgot password?</a></p>
 				<p><a href="" >Help?</a></p>

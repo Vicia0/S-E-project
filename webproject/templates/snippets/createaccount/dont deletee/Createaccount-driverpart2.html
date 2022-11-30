@@ -15,13 +15,20 @@
 			<div class="details" >
                 <br>
                 <div class="item">
-                    <label for="user">Identification</label>
-                    <input id="user" type="text"><br>
+                    <label for="user">Type of Identification *</label><br>
+                    <select name="ID_Type">
+                        <option value="0">ID Type:</option>
+                        <option value="1">National ID</option><option value="2">Passport/Add the country</option>
+                        <option value="3">Driving License</option>
+                    </select>
+                    <label for="user">Identification *</label>
+                    <input id="user" type="text" name="identification"><br>
                 </div>
+                <br><br><br>
                 <label for="user">CAR DETAILS</label>
                 <div class="item">
-                    <label for="user">Type of car</label><br>
-                    <select>
+                    <label for="user">Type of car *</label><br>
+                    <select name="car_type">
                         <option value="0">Select car:</option>
                         <option value="1">Audi</option><option value="2">BMW</option>
                         <option value="3">Citroen</option><option value="4">Ford</option>
@@ -31,12 +38,12 @@
                     </select>
                 </div>
                 <div class="item">
-                    <label for="user">Car Plate</label><br>
-                    <input id="user" type="text">
+                    <label for="user">Car Plate * </label><br>
+                    <input id="user" type="text" name="car_plate">
                 </div>
                 <div class="item">
-                    <label for="user">Car color</label>
-                    <select>
+                    <label for="user">Car color *</label>
+                    <select name="car_color">
                         <option value="0">Select color:</option>
                         <option value="1">Brown</option><option value="2">Red</option>
                         <option value="3">Orange</option><option value="4">Yellow</option>
@@ -45,10 +52,11 @@
                     </select>
                 </div>
                 <div class="item">
-                    <label for="user">Car Description</label><br>
-                    <input id="user" type="text"><br>
+                    <label for="user">Extra Description</label><br>
+                    <input id="user" type="text" name="car_descr" style="height:40px"><br>
                 </div>
 			</div>
+            <br>
             <input type="submit" value="Register -->" class="button" name="Create Account" style="top:1000px"> 
             {% for message in messages %}
                 <p id="messages">{{message}}</p>
@@ -59,13 +67,9 @@
 	</form>  
     <script>
         var form_fields = document.getElementsByTagName('input')
-        form_fields['dr_username'].placeholder='Username...';
-        form_fields['dr_firstname'].placeholder='First Name...';
-        form_fields['dr_lastname'].placeholder='Last Name...';
-        form_fields['dr_email'].placeholder='Email...';
-        form_fields['dr_phonenumber'].placeholder='Phone Number...';
-        form_fields['dr_password1'].placeholder='Enter password...';
-        form_fields['dr_password2'].placeholder='Comfirm password...';
+        form_fields['identification'].placeholder='ID ...';
+        form_fields['car_plate'].placeholder='Car Plate...';
+        form_fields['car_descr'].placeholder='Any description...';
         for(var field in form_fields){
             form_fields[field].className == 'form-control'
         }

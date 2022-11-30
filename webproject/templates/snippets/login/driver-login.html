@@ -1,4 +1,4 @@
-{% extends "snippets/createaccount/Createaccount-template.html" %}
+{% extends "snippets/login/login-template.html" %}
 {% block content %}
 <style>
 
@@ -25,16 +25,16 @@
 					<label for="pass">PASSWORD</label><input id="pass" type="password" data-type="password" name="dr_password">
 				</div>
 			</div>
+			{% for message in messages %}
+		    	<p class="errors" id="messages">{{message}}</p>
+	     	{%endfor%} 	
 			<div class="down-content">
 				<div class="check">
 					<input id="check" type="checkbox">
 					<label for="check"> Keep me Signed in</label><br>
 				</div>
-				{% for message in messages %}
-					<p style="color:rgb(173, 5, 5);" id="messages">{{message}}</p>
-				{%endfor%}
-				<input type="submit" value="Login" class="button" > 
-				<p><a href="{% url 'CreateAccount_Driverpart1' %}" >Create Account</a></p>
+				<input type="submit" value="Login" class="button" >		
+				<p><a href="{% url 'CreateAccount_Driver' %}" >Create Account</a></p>
 				<p><a href="" >Forgot password?</a></p>
 				<p><a href="" >Help?</a></p>
 			</div> 
