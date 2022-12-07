@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<<<<<<< HEAD
-<link rel="stylesheet" href = "{% static 'css/Login-createacount-home.css'%}" >
-=======
 <style type="text/css">
     .body-log{max-width: 300px;margin:auto;background-color: #C0C0C0; text-align: center;}
     .web-container{height: 520px;border-radius: 10px;background-color:white;color:#36AE7C; text-align:center}
@@ -16,10 +13,9 @@
     form .login-form .details input{display: block;border: none;border-radius: 5px;width: 98%;height: 25px;background-color: rgb(204, 255, 255,0.7)}
     form .email:checked + .tab + .phone-nb + .tab + .login-form .email-htm{transform:rotate(0);}
     form .phone-nb:checked + .tab + .login-form .phone-nb-htm{transform:rotate(0);}
-    form .button {text-align: center; height:45px; width:85%; border-radius: 10px;color:white;font-weight: bold;background-color: #36AE7C; border:none; font-style:none;}
+    form .button {text-align: center; height:45px; width:85%; border-radius: 10px;color:white;font-weight: bold;background-color: #36AE7C; border:none}
 </style>
 
->>>>>>> a8e58887ee6ecaf2320c115454ea633e93796832
 <body class="body-log">
     <div class="web-container" >
         
@@ -58,12 +54,13 @@
 			            </div>
 			            <div>
 				            <a href="{% url 'driver_homepage' %}">
-								<div class="button" >
-									<div>Login</div>
+								<div class="button">
+									<p>Login</p>
 								</div>
 							</a>
+
 				        </div>
-	                    <p><a href="" >Create Account</a></p>
+	                    <p><a href="Createaccount-driver.html" >Create Account</a></p>
                         <p><a href="" >Forgot password?</a></p>
                         <p><a href="" >Help?</a></p>
 	                </div> 
