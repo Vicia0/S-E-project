@@ -1,0 +1,48 @@
+{% extends "snippets/createaccount/Createaccount-template.html" %}
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet" href = "{% static 'css/login_create_account/create_acc.css'%}" >
+    <form method="POST" action="">
+        {% csrf_token %}
+        <div class="nav">
+            <a href="{%url 'driver_login'%}" class="left_side"><i class="fa fa-arrow-left">-</i></a>
+            <h2 class="right_side"> CREATE ACCOUNT</h2>  
+        </div> 
+        <div class="create-acc-form">
+	  	    <div class="details" >
+                {%for field in form%}
+                    {%if field is not form.is_driver%}
+                        <div class="item">
+                            {{field.label_tag}}<br>{{field}}
+                            {% for error in field.errors %}
+                                <p class="error">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {%else%}
+                        <div class="term_privacy">
+                            <div class="left">Accept Terms and Privacy</div>
+                            <div class="right">{{form.is_driver}}</div>
+                        </div>
+                    {%endif%}
+                {%endfor%}
+            </div>
+            <div class="btn_div">
+                <input type="submit" value="Register" class="button" > 
+            </div>
+        </div>
+	</form>
+    <script>
+        var form_fields = document.getElementsByTagName('input')
+        form_fields['username'].placeholder='username ... ';
+        form_fields['full_name'].placeholder='full name ...';
+        form_fields['License_ID'].placeholder='License ID ...';
+        form_fields['email'].placeholder='account@gmail.com...';
+        form_fields['phone_number'].placeholder='078...';
+        form_fields['password1'].placeholder='********';
+        form_fields['password2'].placeholder='********';
+        for(var field in form_fields){
+            form_fields[field].className == 'form-control'
+        }
+    </script>  
+{% endblock content %}
+

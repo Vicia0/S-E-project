@@ -1,21 +1,6 @@
 {% load static %}
-<style>
-    .homepage{max-width: 300px;margin:auto;background-color: #C0C0C0; text-align: center;font-family: Arial, Helvetica, sans-serif; font-size: small;}
-    .web-container{height: 520px;border-radius: 10px;background-color:white; text-align:center;} 
-    .form-container{position:relative ;top:-440px;width:80%;left:10%; height:400px;color:#36AE7C;}
-    .form-2nd-cont{padding:3px; background-color: azure; height:90%;position: relative;top:2%}
-    form{text-align:left; position:relative; width:90%;left:5%; height:90;height:100%;color:#36AE7C;}
-    form .details-container{height:90%;}
-    form .button-container{height:10%; text-align: center;}
-    form .page-group1{height:25%}
-    form .page-group2{height:16%;}
-    form .headings{font-size: smaller}
-    form .location{width: 90%;color: rgb(30, 29, 29,0.8);font-size: small;position: relative;left: 5%;}
-    form .details{height:30%; font-size: x-small;font-style: italic;}
-    form .details, form select{position: relative;top:5%}
-    form select{width: 100%; background-color: rgb(239, 229, 229,0.7); border: none;font-size: x-small;}
-    form .button{text-align: center; height:30px; width:100px;border: none; border-radius: 15%;color:white;font-weight: lighter;background-color: #36AE7C;}
-</style>
+
+<link rel="stylesheet" href="{% static 'css/driver/homepage.css' %}">
 
 <body class="homepage">
     <div class="web-container">
@@ -31,10 +16,10 @@
                             <div class="headings">Current location</div>
                             <div class="location">
                                 <div class="details">
-                                    <select name="area" id="area"><option value="" selected="selected"><em>Select area</em></option></select>
+                                    <select name="area_curr" id="area_curr"><option value="" selected="selected"><em>Select area</em></option></select>
                                 </div>
                                 <div class="details"> 
-                                    <select name="stops1" id="stops"><option value="" selected="selected"><em>Select your first stop</em></option></select>
+                                    <select name="stop_curr" id="stop_curr"><option value="" selected="selected"><em>Select your first stop</em></option></select>
                                 </div>                       
                             </div>  
                         </div>
@@ -42,10 +27,10 @@
                             <div class="headings">Destination</div>
                             <div class="location">
                                 <div class="details">
-                                    <select name="area1" id="area1"><option value="" selected="selected"><em>Select area</em></option></select>
+                                    <select name="area_dest" id="area_dest"><option value="" selected="selected"><em>Select area</em></option></select>
                                 </div>
                                 <div class="details">                              
-                                    <select name="stops1" id="stops1"><option value="" selected="selected"><em>Select your last stop</em></option></select>
+                                    <select name="stop_dest" id="stop_dest"><option value="" selected="selected"><em>Select your last stop</em></option></select>
                                 </div>
                             </div>  
                         </div>
@@ -96,30 +81,29 @@
         "Kimironko": {"Igihozo Supermarket": [],"Equity Bank": [],"eMart":[], "Beri Clinic":[],"Beri Clinic":[],
                       "Nkubito D.B":[],"Kwa Mushimire Merez Station":[],"Zindiro bus stop":[],"Kwa Ntayinzira bus stop":[],
                       "Azam roundabout moto stop":[],"Azam bus stop":[],"ALU Entrance":[],"ALU Car park":[]}}
-    window.onload = function() {
-        var areaSel = document.getElementById("area");
-        var stopsSel = document.getElementById("stops");
-        for (var x in current_location) {areaSel.options[areaSel.options.length] = new Option(x, x);}
-        areaSel.onchange = function() {
-            stopsSel.length = 1;
-            for (var y in current_location[this.value]) {
-              stopsSel.options[stopsSel.options.length] = new Option(y, y);}}}
-                  
     var destination = {
         "Remera": {"Ndoli Supermarket": [],"Horebu Supermarket": [],"Bank of Kigali bus stop":[], 
                    "Amahoro Stadium bus stop":[],"Ex Remera Sector Office bus stop":[],"Kwa Rwahama bus stop":[],"Ex KIE bus stop":[]},
         "Kimironko": {"Igihozo Supermarket": [],"Equity Bank": [],"eMart":[], "Beri Clinic":[],"Beri Clinic":[],
                       "Nkubito D.B":[],"Kwa Mushimire Merez Station":[],"Zindiro bus stop":[],"Kwa Ntayinzira bus stop":[],
                       "Azam roundabout moto stop":[],"Azam bus stop":[],"ALU Entrance":[],"ALU Car park":[]}}
+    window.onload = function curr() {
+        var area_curr_Sel = document.getElementById("area_curr");
+        var stop_curr_Sel = document.getElementById("stop_curr");
+        for (var x in current_location) {area_curr_Sel.options[area_curr_Sel.options.length] = new Option(x, x);}
+        area_curr_Sel.onchange = function curr() {
+            stop_curr_Sel.length = 1;
+            for (var y in current_location[this.value]) {
+                stop_curr_Sel.options[stop_curr_Sel.options.length] = new Option(y, y);}
+        }
 
-    window.onload = function() {
-        var area1Sel = document.getElementById("area1");
-        var stops1Sel = document.getElementById("stops1");
-        for (var x in destination) {area1Sel.options[area1Sel.options.length] = new Option(x, x);}
-        area1Sel.onchange = function() {
-            stops1Sel.length = 1;
-            for (var y in destination[this.value]) {
-              stops1Sel.options[stops1Sel.options.length] = new Option(y, y);}}}
+        var area_dest_Sel = document.getElementById("area_dest");
+        var stop_dest_Sel = document.getElementById("stop_dest");
+        for (var t in destination) {area_dest_Sel.options[area_dest_Sel.options.length] = new Option(t, t);}
+        area_dest_Sel.onchange = function dest() {
+            stop_dest_Sel.length = 1;
+            for (var z in destination[this.value]) {
+                stop_dest_Sel.options[stop_dest_Sel.options.length] = new Option(z, z);}}}
 
 </script>
 
