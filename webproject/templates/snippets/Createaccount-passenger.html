@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="{% static 'css/base_css.css' %}" >
+<link rel="stylesheet" href = "{% static 'css/Login-createacount-home.css'%}" >
+
+<body>
+    <div class="web-container" >
+        <h1>Create Account</h1>
+            <form method="post" action=""class="login-page" > 
+                <div class="create account-form">
+			        <div class="register-phn password-nb">
+				        <div class="details">
+                            <br>
+					        <label for="user">Username</label>
+					        <input id="user" type="text"><br>
+                            <br>
+                            <label id="user">Full name</label>
+                            <input type="text"><br>
+                             <br>
+                            <label for="user">Email</label>
+                            <input type="email"><br>
+                            <br>
+                            <label for="number">Phone Number </label>
+                            <input type="number"><br>
+                            <br>
+					        <label for="pass">Password</label>
+					        <input id="pass" type="password" data-type="password"><br>
+                            <br>
+                            <label for="pass">Confirm password</label>
+                            <input type="password" data-type="password"><br>
+                            <br>
+                            <h6>Identification</h6>
+                                <label for="number">National ID </label>
+                                <input type="number"><br>
+                                <br>
+				        </div>
+                            <div class="container">
+                                <input type="button" onclick="window.location.href='C:\Users\HP\Software-Engineering-project\webproject\templates\snippets\passenger-login.html';" class="btn btn-warning btn-lg" value="Submit"/>
+                            </div>
+			        </div>
+			    </div>
+            </form>
+	</div>
+</body>
+
