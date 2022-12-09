@@ -1,0 +1,41 @@
+{% extends "page-template.html" %}
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet" href = "{% static 'css/01_login_register/login.css'%}" >
+	<form method="POST" action="">
+		{% csrf_token %}
+		<div class="back"><a href="{% url 'home' %}"><i class="fa fa-arrow-left"></i></a></div><br>
+		<h2> DRIVER LOGIN</h2>
+		<input id="tab-phn-n" type="radio" name="tab" class="email-phn email" checked><label for="tab-phn-n" class="tab">Email</label>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input id="tab-email" type="radio" name="tab" class="email-phn phone-nb"><label for="tab-email" class="tab">Phone number</label>        
+		<div class="login-form">
+			<div class="tab-htm email-htm">
+				<div class="details">
+					<label for="user">USERNAME</label><input id="user" type="text" name="username"><br>
+					<label for="pass">PASSWORD</label><input id="pass" type="password" data-type="password" name="password">
+				</div>
+			</div>
+			<div class="tab-htm phone-nb-htm">
+				<div class="details">
+					<label for="user">PHONE NUMBER</label><input id="user" type="text" name="dr_phonen"><br>
+					<label for="pass">PASSWORD</label><input id="pass" type="password" data-type="password" name="dr_password">
+				</div>
+			</div>
+			{% for message in messages %}
+		    	<p class="errors" id="messages">{{message}}</p>
+	     	{%endfor%} 	
+			<div class="down-content">
+				<div class="check">
+					<input id="check" type="checkbox">
+					<label for="check"> Keep me Signed in</label><br>
+				</div>
+				<input type="submit" value="Login" class="button" >		
+				<p><a href="{% url 'CreateAccount_Driver' %}" >Create Account</a></p>
+				<p><a href="" >Forgot password?</a></p>
+				<p><a href="" >Help?</a></p>
+			</div> 
+		</div>  
+	</form>  
+{% endblock content %}
+

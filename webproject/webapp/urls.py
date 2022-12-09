@@ -1,9 +1,9 @@
 from django.urls import path
 from webapp.views import *
-from webapp.views_account_creation import *
-from webapp.views_login import *
-from webapp.views_passenger import *
-from webapp.views_driver import *
+from webapp.views_00account_creation import *
+from webapp.views_00login import *
+from webapp.views_02passenger import *
+from webapp.views_01driver import fn_trip_details, fn_requests, fn_stops, fn_dropoff
 from templates import snippets
 
 
@@ -18,12 +18,15 @@ urlpatterns = [
     path("Driver/Register/", fn_CreateAcc_Driver, name="CreateAccount_Driver"),
     # LOGIN
     path("Passenger/login/", fn_passenger_login, name="passenger_login"),
-    path("Driver/loginpage/", fn_driver_login, name="driver_login"),
+    path("Driver/login/", fn_driver_login, name="driver_login"),
     # HOMEPAGES
-    path("Driver/homepage/", driver_homepage, name="driver_homepage"),
-    path("Passenger/homepage/", passenger_homepage, name="passenger_homepage")
+    path("Driver/homepage/", fn_trip_details, name="driver_homepage"),
+    path("Passenger/homepage/", passenger_homepage, name="passenger_homepage"),
     # path('passenger-login/', passenger_login, name = 'passenger-login'),
     # path('home', views.home, name='home')
-    # DRIVER LINKS
+    # DRIVER LINKS, pages in order
+    path("Driver/Requests/", fn_requests, name="passenger_requests"),
+    path("Driver/Stops/", fn_requests, name="passenger_stops"),
+    path("Driver/Dropoffs/", fn_requests, name="passenger_dropoffs"),
     # PASSENGER LINKS
 ]

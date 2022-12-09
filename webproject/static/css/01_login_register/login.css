@@ -1,0 +1,21 @@
+
+form{text-align:center; position:relative; width:80%;left:10%; height:90%;top:8%;font-size:14px}
+form .back{left:10px; width:30px}
+form .back a{color:#36AE7C; font-size:17px}
+form h2{font-size:17px}
+
+form .email-phn{display:none; position:relative;}
+form .login-form{width:90%; position:relative; left:6%; top:2%}
+form .login-form .tab-htm{position:absolute;transform:rotateY(180deg);backface-visibility:hidden;transition:all .4s linear}
+form .login-form .details{width:195px; position:relative; left:5%;top:15px; text-align:left}
+form .login-form .details input{display: block;border: none;border-radius: 5px;width: 98%;height: 25px;background-color: rgb(204, 255, 255,0.7)}
+form .email:checked + .tab + .phone-nb + .tab + .login-form .email-htm{transform:rotate(0);}
+form .phone-nb:checked + .tab + .login-form .phone-nb-htm{transform:rotate(0);}
+form .button {text-align:center ; height:45px; width:85%; border-radius: 10px;color:white;font-weight: bold;background-color: #36AE7C; border:none}
+
+form .down-content{top:290px; position:fixed;width: 200px}
+form .check{position: relative;left:7px; text-align:left; height:40px}
+
+/* Errors */
+form .login-form .errors{color:rgb(173, 5, 5);}
+ a{color:black;}

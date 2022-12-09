@@ -1,0 +1,15 @@
+{% extends "snippets/02_driver/page-template.html" %}
+{% block content %}
+    {% load static %}
+    <!--THE STYLESHEET-->
+    <link rel="stylesheet" href = "{% static 'css/page_templates/homepage.css'%}" >
+    <strong> TITLE </strong>
+    <div class="form-2nd-cont">
+        <div class="button-container">
+            <a href="{% url 'driver_homepage' %}"><input type="submit" class="button" value="Submit"></a>
+            <a href="{% url 'driver_login' %}"><button name="Driver"> DRIVER</button></a>           
+        </div> 
+    </div>
+
+{% endblock content %}
+

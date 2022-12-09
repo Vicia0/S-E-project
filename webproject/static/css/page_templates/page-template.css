@@ -1,0 +1,17 @@
+.page{max-width: 300px;margin:auto;background-color: #C0C0C0; text-align: center;font-family: Arial, Helvetica, sans-serif; font-size: small;}
+.web-container{height: 520px;border-radius: 10px;background-color:white;color:#36AE7C; text-align:center}
+*{font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;    }
+
+body{
+    font-weight: 380;
+    background-color: green; 
+    width: 900px;
+
+}
+:root{
+    --main-background--color: #white;
+    --dark-background-color: #a2a2a2;
+    --secondary-text-color: #808080 ;
+    --light-primary-color: #0080ff ;
+    --main-text-color:#36AE7C;
+}

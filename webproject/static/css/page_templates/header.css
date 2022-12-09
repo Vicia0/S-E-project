@@ -1,0 +1,14 @@
+.overlay-menu {width: 100%;height: 100%;display: none;position: relative;z-index: 1;background-color: #36AE7C;border-radius: 10px;}
+.overlay-menu .overlay-nav{display: grid;height: 42px;width: 80%; margin: auto;grid-template-columns: repeat(2, 1fr);position:relative; top:5%;text-align:left }
+.overlay-menu .overlay-nav .closebtn{font-size: 40px; position:relative;top:-15px}
+.overlay-menu .overlay-nav .right-sid{text-align:right}
+.overlay-menu-content {position: relative;left:10%;top: 10%;width: 80%;text-align: left;color:white}
+.overlay-menu a {padding: 17px;text-decoration: none;font-size: 16px;color: white;display: block;transition: 0.3s;}
+.overlay-menu a i{position:relative; left:140px}
+.overlay-menu a:hover, .overlay-menu a:focus {color: #00FFFF;}
+.nav{height:10%; width: 300px;left: 0;position:relative;top:15px}
+.nav .right-side, .nav .left-side{list-style-type: none; width: 90%;top:5px;margin:auto; position:relative}
+.nav .right-side{position:relative; text-align:right;right:8px}
+.nav .left-side{text-align: left;position:relative;left:8px}    
+.nav .menu-icn{left:0;position:relative; top:5px}
+.nav .img-icon, .overlay-menu .img-icon{height:35px;width:35px;position:relative;top:4px;}

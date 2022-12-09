@@ -1,0 +1,16 @@
+<!--PAGE TEMPLATE FOR PASSENGER PAGES-->
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/page_templates/page-template.css' %}">
+<body class="page">
+    <div class="web-container">
+        <nav>
+            {% include 'snippets/02_driver/header.html' %}
+        </nav>
+        <div class="form-container">
+            {% block content %}
+
+            {% endblock content %}
+        </div>
+    </div>
+</body>
+
