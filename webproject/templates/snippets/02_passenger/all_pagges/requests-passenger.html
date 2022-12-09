@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+    .overlay-menu {width: 50%;height: 100%;display: none;position: relative;z-index: 1;background-color: #36AE7C;border-radius: 10px;margin: auto;margin-top: 5px;}
+    .overlay-menu .overlay-nav{display: grid;height: 42px;width: 80%; margin: auto;grid-template-columns: repeat(2, 1fr);position:relative; top:5%;text-align:left }
+    .overlay-menu .overlay-nav .closebtn{font-size: 40px; position:relative;top:-15px}
+    .overlay-menu .overlay-nav .right-sid{text-align:right}
+    .overlay-menu-content {position: relative;left:10%;top: 10%;width: 80%;text-align: left;color:white}
+    .overlay-menu a {padding: 17px;text-decoration: none;font-size: 16px;color: white;display: block;transition: 0.3s;}
+    .overlay-menu a i{position:relative; left:140px}
+    .overlay-menu a:hover, .overlay-menu a:focus {color: #00FFFF;}
+    .nav{height:10%; width: 300px;left: 0;position:relative;top:15px}
+    .nav .right-side, .nav .left-side{list-style-type: none; width: 90%;top:5px;margin:auto; position:relative}
+    .nav .right-side{position:relative; text-align:right;right:8px}
+    .nav .left-side{text-align: left;position:relative;left:170%;color: #36AE7C;}    
+    .nav .menu-icn{left:0;position:relative; top:5px}
+    .nav .img-icon, .overlay-menu .img-icon{height:35px;width:35px;position:relative;top:4px;}
+</style>
+<body>
+    <div id="overlay-nav" class="overlay-menu">
+        <div class="overlay-nav">
+            <div>
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            </div>
+            </div>
+            <div class="overlay-menu-content">
+                <a href="#">MY CARS&nbsp;<i class="fa fa-angle-right"></i></a> 
+                <a href="{% url 'driver_homepage' %}">TRIP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right"></i></a>
+                <a href="#">REQUESTS<i class="fa fa-angle-right"></i></a>
+                <a href="#">STOPS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right"></i></a>
+                <a href="#">SETTINGS&nbsp;<i class="fa fa-angle-right"></i></a>
+                <a href="{% url 'driver_login' %}">LOG OUT&nbsp;&nbsp;<i class="fa fa-angle-right"></i></a>
+            </div>
+    </div>
+    
+        <div class="nav" id="menu-icon">
+            <div class="left-side">
+                <div class="menu-icn" >
+                    <span style="font-size:40px;cursor:pointer; z-index:100; position:fixed;margin: auto;" onclick="openNav()">&#9776;</span>
+                </div>
+            </div>
+        </div>
+        <script>
+            function openNav() { 
+                document.getElementById("overlay-nav").style.display = "block";
+                document.getElementById("menu-icon").style.display="none";  }
+            function closeNav() {
+                document.getElementById("overlay-nav").style.display = "none";
+                document.getElementById("menu-icon").style.display="block"; }
+        </script>
+    <img style="margin-left: 55%;margin-top: 35px; box-sizing: border-box;width: 39px;height: 40px;border: 2px solid #36AE7C;border-radius: 50px;" class = "avatar1" src="https://res.cloudinary.com/dpfaapjtt/image/upload/v1658398235/personal%20pictures/woman_1_mxe59e.png" alt="an avatar of a gendered woman"><br><br>
+           
+    <div>
+        <h2 style="margin-left: 595px;color:#36AE7C">Requests</h2>
+    </div> 
+    <div style="margin-left: 550px; margin-top: 40px; width: 300px; height: 300px; border:0; border-radius: 10px;">
+        <div style="margin-left: 20px; margin-top: 20px;">
+            <img style="margin-left: -30px;width: 40px;" class="userAvatar" src="https://res.cloudinary.com/dpfaapjtt/image/upload/v1659017299/Rectangle_2_rr3ndf.png" alt="">       
+            <p style="color:#36AE7C;margin-top: -20%;margin-left: 10%;">Kisimenti</p>
+            <p style="color:#36AE7C;margin-top: -4%;margin-left: 10%;">Simba</p>
+            <p style="color:#36AE7C;margin-top: -3%;margin-left: 10%;">7:00</p>
+            <p style="color:#36AE7C;margin-top: -30%;">2+</p><br>
+            <button style="margin-left: 20px; margin-top: 20px; width: 60px; height: 30px; border: 2px solid #36AE7C; border-radius: 10px; background-color: #36AE7C; color: white;">Accept</button>
+            <button style="margin-left: 20px; margin-top: 20px; width: 60px; height: 30px; border: 2px solid #36AE7C; border-radius: 10px; background-color: #36AE7C; color: white;">Reject</button>
+        </div><br>
+        <div style="margin-left: 20px; margin-top: 20px;">
+            <img style="margin-left: -30px;width: 40px;" class="userAvatar" src="https://res.cloudinary.com/dpfaapjtt/image/upload/v1659017299/Rectangle_2_rr3ndf.png" alt="">       
+            <p style="color:#36AE7C;margin-top: -20%;margin-left: 10%;">Kisimenti</p>
+            <p style="color:#36AE7C;margin-top: -4%;margin-left: 10%;">Simba</p>
+            <p style="color:#36AE7C;margin-top: -3%;margin-left: 10%;">7:00</p>
+            <p style="color:#36AE7C;margin-top: -30%;">1+</p><br>
+            <button style="margin-left: 20px; margin-top: 20px; width: 60px; height: 30px; border: 2px solid #36AE7C; border-radius: 10px; background-color: #36AE7C; color: white;">Accept</button>
+            <button style="margin-left: 20px; margin-top: 20px; width: 60px; height: 30px; border: 2px solid #36AE7C; border-radius: 10px; background-color: #36AE7C; color: white;">Reject</button>
+        </div><br>
+        <div style="margin-left: 20px; margin-top: 20px;">
+            <img style="margin-left: -30px;width: 40px;" class="userAvatar" src="https://res.cloudinary.com/dpfaapjtt/image/upload/v1659017299/Rectangle_2_rr3ndf.png" alt="">       
+            <p style="color:#36AE7C;margin-top: -20%;margin-left: 10%;">Kisimenti</p>
+            <p style="color:#36AE7C;margin-top: -4%;margin-left: 10%;">Simba</p>
+            <p style="color:#36AE7C;margin-top: -3%;margin-left: 10%;">7:00</p>
+            <p style="color:#36AE7C;margin-top: -30%;">1+</p><br>
+            <button style="margin-left: 20px; margin-top: 20px; width: 60px; height: 30px; border: 2px solid #36AE7C; border-radius: 10px; background-color: #36AE7C; color: white;">Accept</button>
+            <button style="margin-left: 20px; margin-top: 20px; width: 60px; height: 30px; border: 2px solid #36AE7C; border-radius: 10px; background-color: #36AE7C; color: white;">Reject</button>
+        </div>
+
+    </div>
+</body>
+</html>

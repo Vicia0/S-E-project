@@ -1,23 +1,15 @@
-<!DOCTYPE html>
-{% load static %}
-<link rel="stylesheet" href="{% static 'css/base.css' %}" >
-<style type="text/css">
-    .base-body{max-width: 300px;margin:auto;background-color: #C0C0C0; text-align: center;}
-    .web-container{height: 520px;border-radius: 10px;background-color:white;color:#36AE7C; text-align:center}
-    .start-page{width: 80%; height: 60%; position: relative; left: 10%; top: 20%;text-align: center;}
-    .start-page button {text-align: center; height:45px; width:200px; border-radius: 10px;color:white;font-weight: lighter;
-       position: relative;top: 10%; bottom: 5px;background-color: #36AE7C;}
-    img{width:100%}
-</style>
+<!--THE MAIN HOMEPAGE-->
 
-<body class="base-body">
-    <div class="web-container">
-	    <div class="start-page" style="background-color:blue">
-            <a><img src="{% static 'images/logo.jpg' %}"></a>
-            <a href="{% url 'passenger_login' %}"><button name="Passenger">PASSENGER</button></a>
-            <p></p>
-            <a href="{% url 'driver_login' %}"><button name="Driver"> DRIVER</button></a>
-	    </div>
-	</div>
-</body>
+{% extends "page-template.html" %}
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet" href = "{% static 'css/base.css'%}" >
+    <div class="details" style="background-color:blue">
+        <a href="{% url 'home' %}"><img src="{% static 'images/logo.jpg' %}"></a>
+        <a href="{% url 'passenger_login' %}"><button name="Passenger">PASSENGER</button></a>
+        <p></p>
+        <a href="{% url 'driver_login' %}"><button name="Driver"> DRIVER</button></a>
+    </div>
+
+{% endblock content %}
 

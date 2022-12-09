@@ -1,0 +1,106 @@
+{% extends "snippets/02_driver/page-template.html" %}
+{% block content %}
+    {% load static %}{% load mathfilters %}
+    <link rel="stylesheet" href = "{% static 'css/page_templates/dr_homepage.css'%}" >
+    <strong>TRIP DETAILS</strong>
+    <div class="form-2nd-cont">
+        <form name="trip_form" method="POST" id="trip_form" >
+            {%csrf_token%}
+            <fieldset>
+            <div class="details-container" >
+                <div class="page-group1">
+                    Current location
+                    <div class="location" >
+                        <select name="area_curr" id="area_curr"><option value="" selected="selected"><em>Select area</em></option></select>
+                        <select name="stop_curr" id="stop_curr"><option value="" selected="selected"><em>Select your first stop</em></option></select>
+                    </div>  
+                </div>
+                <div class="page-group1">
+                    Destination<br>
+                    <div class="location">
+                        <select name="area_dest" id="area_dest"><option value="" selected="selected"><em>Select area</em></option></select>                         
+                        <select name="stop_dest" id="stop_dest"><option value="" selected="selected"><em>Select your last stop</em></option></select>
+                    </div>  
+                </div>
+                <div class="page-group2">
+                    Car Plate:
+                    <input type="text" name="car_plate">
+                </div>            
+                <div class="page-group2">
+                    Car Color:
+                    <input type="text" name="car_color">
+                </div>                           
+                <div class="page-group2">
+                    Available Seats:
+                    <select name="seats" >
+                        <option>Select seats</option><option>1</option><option>2</option>
+                        <option>3</option><option>4</option><option>5</option>
+                    </select>  
+                </div>
+                <div class="page-group2">
+                    Departure Date:
+                    <input type="text" name="date">
+                </div>  
+                <div class="page-group2">  
+                    Departure Time:
+                    <input type="text" name="time">
+                </div> 
+            </div>
+            {% for message in messages %}
+                <p style="color: red;" id="messages">{{message}}</p>
+            {%endfor%}
+            </fieldset>
+            <div class="button-container">
+                <button class="button">SUBMIT</button>                             
+            </div>
+        </form>
+    </div>
+    <script>
+        var current_location = {
+            "Remera": {"Ndoli Supermarket": [],"Horebu Supermarket": [],"Bank of Kigali bus stop":[], 
+                       "Amahoro Stadium bus stop":[],"Ex Remera Sector Office bus stop":[],"Kwa Rwahama bus stop":[],"Ex KIE bus stop":[]},
+            "Kimironko": {"Igihozo Supermarket": [],"Equity Bank": [],"eMart":[], "Beri Clinic":[],"Beri Clinic":[],
+                          "Nkubito D.B":[],"Kwa Mushimire Merez Station":[],"Zindiro bus stop":[],"Kwa Ntayinzira bus stop":[],
+                          "Azam roundabout moto stop":[],"Azam bus stop":[],"ALU Entrance":[],"ALU Car park":[]}}
+        var destination = {
+            "Remera": {"Ndoli Supermarket": [],"Horebu Supermarket": [],"Bank of Kigali bus stop":[], 
+                       "Amahoro Stadium bus stop":[],"Ex Remera Sector Office bus stop":[],"Kwa Rwahama bus stop":[],"Ex KIE bus stop":[]},
+            "Kimironko": {"Igihozo Supermarket": [],"Equity Bank": [],"eMart":[], "Beri Clinic":[],"Beri Clinic":[],
+                          "Nkubito D.B":[],"Kwa Mushimire Merez Station":[],"Zindiro bus stop":[],"Kwa Ntayinzira bus stop":[],
+                          "Azam roundabout moto stop":[],"Azam bus stop":[],"ALU Entrance":[],"ALU Car park":[]}}
+        window.onload = function curr() {
+            var area_curr_Sel = document.getElementById("area_curr");
+            var stop_curr_Sel = document.getElementById("stop_curr");
+            for (var x in current_location) {area_curr_Sel.options[area_curr_Sel.options.length] = new Option(x, x);}
+            area_curr_Sel.onchange = function curr() {
+                stop_curr_Sel.length = 1;
+                for (var y in current_location[this.value]) {
+                    stop_curr_Sel.options[stop_curr_Sel.options.length] = new Option(y, y);}
+            }
+    
+            var area_dest_Sel = document.getElementById("area_dest");
+            var stop_dest_Sel = document.getElementById("stop_dest");
+            for (var t in destination) {area_dest_Sel.options[area_dest_Sel.options.length] = new Option(t, t);}
+            area_dest_Sel.onchange = function dest() {
+                stop_dest_Sel.length = 1;
+                for (var z in destination[this.value]) {
+                    stop_dest_Sel.options[stop_dest_Sel.options.length] = new Option(z, z);}}}
+    
+    
+        var form_fields = document.getElementsByTagName('input')
+        form_fields['car_plate'].placeholder='Car plate ...';
+        form_fields['car_color'].placeholder='Car color ...';
+        form_fields['date'].placeholder='Month/Day/Year';
+        form_fields['time'].placeholder='07:30';
+        form_fields['License_ID'].placeholder='License ID ...';
+        form_fields['email'].placeholder='account@gmail.com...';
+        form_fields['phone_number'].placeholder='078...';
+        form_fields['password1'].placeholder='********';
+        form_fields['password2'].placeholder='********';
+        for(var field in form_fields){
+            form_fields[field].className == 'form-control'
+        }
+    </script>
+
+{% endblock content %}
+

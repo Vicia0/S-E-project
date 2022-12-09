@@ -1,0 +1,26 @@
+{% load static %}
+<style>
+    .homepage{max-width: 300px;margin:auto;background-color: #C0C0C0; text-align: center;font-family: Arial, Helvetica, sans-serif; font-size: small;}
+    .web-container{height: 520px;border-radius: 10px;background-color:white; text-align:center;} 
+    .form-container{position:relative ;top:-440px;width:80%;left:10%; height:400px;color:#36AE7C;}
+    .form-2nd-cont{padding:3px; background-color: azure; height:90%;position: relative;top:2%}
+    form{text-align:left; position:relative; width:90%;left:5%; height:90;height:100%;color:#36AE7C;}
+</style>
+
+<body class="homepage">
+    <div class="web-container">
+        <nav>
+            {% include 'snippets/driver/header.html' %}
+        </nav>
+        <div class="form-container">
+            <strong>TRIP DETAILS</strong>
+            <div class="form-2nd-cont">
+                <form name="request_form" id="trip_form" action="/action_page.php">
+                             
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+

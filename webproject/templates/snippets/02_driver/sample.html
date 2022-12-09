@@ -1,0 +1,71 @@
+{% extends "snippets/02_driver/page-template.html" %}
+{% block content %}
+    {% load static %}
+    <!--THE STYLESHEET-->
+    <link rel="stylesheet" href = "{% static 'css/page_templates/homepage.css'%}" >
+    <strong> TITLE </strong>
+    <div class="form-2nd-cont">
+        <form name="trip_form" id="trip_form" action="/action_page.php">
+            <div class="details-container">
+                <div class="page-group1">
+                    <div class="headings">Current location</div>
+                    <div class="location">
+                        <div class="details">
+                            <select name="area_curr" id="area_curr"><option value="" selected="selected"><em>Select area</em></option></select>
+                        </div>
+                        <div class="details"> 
+                            <select name="stop_curr" id="stop_curr"><option value="" selected="selected"><em>Select your first stop</em></option></select>
+                        </div>                       
+                    </div>  
+                </div>
+                <div class="page-group1">
+                    <div class="headings">Destination</div>
+                    <div class="location">
+                        <div class="details">
+                            <select name="area_dest" id="area_dest"><option value="" selected="selected"><em>Select area</em></option></select>
+                        </div>
+                        <div class="details">                              
+                            <select name="stop_dest" id="stop_dest"><option value="" selected="selected"><em>Select your last stop</em></option></select>
+                        </div>
+                    </div>  
+                </div>
+                <div class="page-group2">
+                    <div class="headings">Car:</div>
+                    <select name="car" ><option>Select car</option></select>
+                </div>                                  
+                <div class="page-group2">
+                    <div class="headings">Number of seats</div>   
+                        <select name="seats" >
+                            <option>Select seats</option><option>1</option><option>2</option>
+                            <option>3</option><option>4</option><option>5</option>
+                        </select>   
+                    </div>
+                <div class="page-group2">
+                    <span class="headings">Departure Date</span> 
+                    <span class="headings" style="position:relative;left:6%">&nbsp;&nbsp;Time</span><br>
+                    <span style="color:rgb(58, 57, 57); font-size: smaller;">
+                        &nbsp;&nbsp;day&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;month&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hour&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; min
+                    </span>                       
+                    <div>
+                        <span>
+                            <input style="width: 21%;" type="number" min="1" max="31">
+                            <input style="width: 21%;" type="number" min="1" max="12">                               
+                        </span>
+                        <span style="text-align: right;position:relative;left:6%">
+                            <input style="width: 21%;" type="number" min="00" max="24">
+                            <input style="width: 21%;" type="number" min="00" max="60">                               
+                        </span>
+                    </div>                       
+                </div>  
+            </div>
+            <div class="button-container">
+                <a href="{% url 'driver_homepage' %}"><input type="submit" class="button" value="Submit"></a>
+                <a href="{% url 'driver_login' %}"><button name="Driver"> DRIVER</button></a>
+                
+            </div>                                
+        </form>
+    </div>
+
+{% endblock content %}
+

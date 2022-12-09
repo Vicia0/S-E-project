@@ -18,3 +18,7 @@ To run the project
 4. Run command
      - \webproject
      - py manage.py runserver
+
+Required applications:
+- django
+- mathfilters : pip install django-mathfilters

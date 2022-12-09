@@ -42,7 +42,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     # my apps
-    "webapp",
+    "webapp","mathfilters",
     # third party apps
     "django.contrib.admin",
     "django.contrib.auth",

@@ -1,0 +1,37 @@
+{% extends "snippets/00_page_templates/header.html" %}
+{% block content %}
+    {% load static %}
+    <div class="overlay-nav">
+        <div><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
+            <div class="right-sid"><img alt="" class="img-icon" src="{% static 'images/passenger-img.jpg' %}" ></div>
+        </div>
+        <div class="overlay-menu-content">
+            <a href="#">MY CARS&nbsp;<i class="fa fa-angle-right"></i></a> 
+            <a href="{% url 'driver_homepage' %}">TRIP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right"></i></a>
+            <a href="#">REQUESTS<i class="fa fa-angle-right"></i></a>
+            <a href="#">STOPS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right"></i></a>
+            <a href="#">SETTINGS&nbsp;<i class="fa fa-angle-right"></i></a>
+            <a href="{% url 'driver_login' %}">LOG OUT&nbsp;&nbsp;<i class="fa fa-angle-right"></i></a>
+        </div>
+    </div>
+    <div class="nav" id="menu-icon">
+        <div class="left-side">
+            <div class="menu-icn" >
+                <span style="font-size:25px;cursor:pointer; z-index:100; position:fixed" onclick="openNav()">&#9776;</span>
+            </div>
+        </div>
+        <div class="right-side">
+            <span><strong> Passenger {{name}}</strong></span>
+            <img alt="" class="img-icon" src="{% static 'images/passenger-img.jpg' %}"  >
+        </div>
+    </div>
+    <script>
+        function openNav() { 
+            document.getElementById("overlay-nav").style.display = "block";
+            document.getElementById("menu-icon").style.display="none";  }
+        function closeNav() {
+            document.getElementById("overlay-nav").style.display = "none";
+            document.getElementById("menu-icon").style.display="block"; }
+    </script>
+{% endblock content %}
+
