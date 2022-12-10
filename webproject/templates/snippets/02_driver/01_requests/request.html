@@ -1,15 +1,42 @@
 {% extends "snippets/02_driver/page-template.html" %}
 {% block content %}
-    {% load static %}
-    <!--THE STYLESHEET-->
+    {% load static %}{% load mathfilters %}
     <link rel="stylesheet" href = "{% static 'css/page_templates/homepage.css'%}" >
-    <strong> TITLE </strong>
+    <strong>TRIP DETAILS</strong>
     <div class="form-2nd-cont">
-        <div class="button-container">
-            <a href="{% url 'driver_homepage' %}"><input type="submit" class="button" value="Submit"></a>
-            <a href="{% url 'driver_login' %}"><button name="Driver"> DRIVER</button></a>           
-        </div> 
+        <form name="trip_form" method="POST" id="trip_form" >
+            {%csrf_token%}
+            <fieldset>
+            <div class="details-container" >
+                <div class="page-group1">
+                    Current location
+                    <div class="location" >
+                        <select name="area_curr" id="area_curr"><option value="" selected="selected"><em>Select area</em></option></select>
+                        <select name="stop_curr" id="stop_curr"><option value="" selected="selected"><em>Select your first stop</em></option></select>
+                    </div>  
+                </div>
+                <div class="page-group1">
+                    Destination<br>
+                    <div class="location">
+                        <select name="area_dest" id="area_dest"><option value="" selected="selected"><em>Select area</em></option></select>                         
+                        <select name="stop_dest" id="stop_dest"><option value="" selected="selected"><em>Select your last stop</em></option></select>
+                    </div>  
+                </div>
+                {%for field in form %}
+                <div class="page-group2">
+                    {{field.label_tag}}<br>
+                    {{field}}
+                </div>  
+                {%endfor%}
+            </div>
+            {% for message in messages %}
+                <p style="color: red;" id="messages">{{message}}</p>
+            {%endfor%}
+            </fieldset>
+            <div class="button-container">
+                <button class="button">SUBMIT</button>                             
+            </div>
+        </form>
     </div>
-
 {% endblock content %}
 

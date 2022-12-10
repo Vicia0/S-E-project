@@ -1,63 +1,45 @@
 {% extends "snippets/02_passenger/page-template.html" %}
 {% block content %}
-    {% load static %}
-    <link rel="stylesheet" href = "{% static 'css/page_templates/homepage.css'%}" >
-    <strong>TRIP DETAILS</strong>
+    {% load static %}{% load mathfilters %}
+    <link rel="stylesheet" href = "{% static 'css/page_templates/dr_homepage.css'%}" >
+    <strong>TRIP DETAILS pass</strong>
     <div class="form-2nd-cont">
-        <form name="trip_form" id="trip_form" action="/action_page.php">
-            <div class="details-container">
+        <form name="trip_form" method="POST" id="trip_form" >
+            {%csrf_token%}
+            <fieldset>
+            <div class="details-container" >
                 <div class="page-group1">
-                    <div class="headings">Current location</div>
-                    <div class="location">
-                        <div class="details">
-                            <select name="area_curr" id="area_curr"><option value="" selected="selected"><em>Select area</em></option></select>
-                        </div>
-                        <div class="details"> 
-                            <select name="stop_curr" id="stop_curr"><option value="" selected="selected"><em>Select your first stop</em></option></select>
-                        </div>                       
+                    Current location
+                    <div class="location" >
+                        <select name="area_curr" id="area_curr"><option value="" selected="selected"><em>Select area</em></option></select>
+                        <select name="stop_curr" id="stop_curr"><option value="" selected="selected"><em>Select your first stop</em></option></select>
                     </div>  
                 </div>
                 <div class="page-group1">
-                    <div class="headings">Destination</div>
+                    Destination<br>
                     <div class="location">
-                        <div class="details">
-                            <select name="area_dest" id="area_dest"><option value="" selected="selected"><em>Select area</em></option></select>
-                        </div>
-                        <div class="details">                              
-                            <select name="stop_dest" id="stop_dest"><option value="" selected="selected"><em>Select your last stop</em></option></select>
-                        </div>
+                        <select name="area_dest" id="area_dest"><option value="" selected="selected"><em>Select area</em></option></select>                         
+                        <select name="stop_dest" id="stop_dest"><option value="" selected="selected"><em>Select your last stop</em></option></select>
                     </div>  
-                </div>                                 
-                <div class="page-group2">
-                    <div class="headings">Number of people</div>   
-                        <select name="seats" >
-                            <option>Select seats</option><option>1</option><option>2</option>
-                            <option>3</option><option>4</option><option>5</option>
-                        </select>   
-                    </div>
-                <div class="page-group2">
-                    <div class="headings">Departure Date<br>
-                        <span color:grey>
-                            <label>&nbsp;&nbsp;&nbsp;&nbsp;Day&nbsp;&nbsp;<input style="width: 21%;" type="number" min="1" max="31"></label>
-                            <label>&nbsp;&nbsp;&nbsp;&nbsp;Month&nbsp;&nbsp;<input style="width: 21%;" type="number" min="1" max="12"></label>                                   
-                        </span> 
-                    </div>                                       
                 </div>
-                <div  class="page-group2">
-                    <div class="headings">Departure Time<br>
-                        <span color:grey>
-                            <label>&nbsp;&nbsp;&nbsp;&nbsp;Hour <input style="width: 21%;" type="number" min="00" max="24"></label>
-                            <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Min&nbsp;&nbsp;&nbsp;&nbsp;<input style="width: 21%;" type="number" min="00" max="60"></label>                                   
-                        </span> 
-                    </div>       
-                </div>        
+                {%for field in form %}
+                <div class="page-group2">
+                    {{field.label_tag}}<br>
+                    {{field}}
+                </div>  
+                {%endfor%}
             </div>
+            {% for message in messages %}
+                <p style="color: red;" id="messages">{{message}}</p>
+            {%endfor%}
+            </fieldset>
             <div class="button-container">
-                <a href=""><input type="submit" class="button" value="Submit"></a>                        
-            </div>                                
+                <button class="button">SUBMIT</button>                             
+            </div>
         </form>
     </div>
     <script>
+        //Cascading dropdown list of 2
         var current_location = {
             "Remera": {"Ndoli Supermarket": [],"Horebu Supermarket": [],"Bank of Kigali bus stop":[], 
                        "Amahoro Stadium bus stop":[],"Ex Remera Sector Office bus stop":[],"Kwa Rwahama bus stop":[],"Ex KIE bus stop":[]},
@@ -88,6 +70,14 @@
                 for (var z in destination[this.value]) {
                     stop_dest_Sel.options[stop_dest_Sel.options.length] = new Option(z, z);}}}
     
+    
+        var form_fields = document.getElementsByTagName('input')
+        form_fields['car_plate'].placeholder='Car plate ...';
+        form_fields['d_date'].placeholder='Month/Day/Year';
+        form_fields['time'].placeholder='07:30';
+        for(var field in form_fields){
+            form_fields[field].className == 'form-control'
+        }
     </script>
 
 {% endblock content %}

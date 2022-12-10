@@ -1,17 +1,16 @@
-from django.http import HttpResponse
-from django.shortcuts import render
-from django.views.decorators.csrf import csrf_exempt
+from .views_000_req import *
+#forms
 from .forms_01driver import online_Drivers#, online_Passengers
-from .models import *
+#models
+from .models_00User import User
+from .models import the_ride
+#views login
 from .views_00login import *
-import datetime
-# @csrf_exempt #csrf errors
 
 
 # DRIVER PAGES
 # Home
-
-def fn_trip_details(request):
+def fn_dr_tripdetails(request):
     #fields = ['username','car','origin_area','origin_stop','destination_area',
     #    'destination_stop','date','time','available_seats']
     all_fields = 'no'

@@ -1,6 +1,6 @@
-from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import User
+from .forms_000_req import *
+from .models_00User import User
 
 class LoginForm(forms.Form):
     username = forms.CharField(widget= forms.TextInput(attrs={"class": "form-control"}))

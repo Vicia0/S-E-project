@@ -11,11 +11,8 @@
         <div class="create-acc-form">
 	  	    <div class="details" >
                 {%for field in form%}
-                    {%if field.html_name is not "Driver"%}
+                    {%if field is not form.is_driver%}
                         <div class="item">
-                            {{field.html_name}}
-                            {{field.auto_id}}
-                            {{field.id_for_label }}
                             {{field.label_tag}}<br>{{field}}
                             {% for error in field.errors %}
                                 <p class="error">{{ error }}</p>

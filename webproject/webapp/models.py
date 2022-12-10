@@ -1,15 +1,5 @@
-from django.db import models
-from django.contrib.auth.models import AbstractUser
-
+from .models_000_req import *
 # Create your models here.
-
-
-class User(AbstractUser):
-    is_admin = models.BooleanField('Admin', default=False)
-    is_passenger = models.BooleanField('Passenger', default=False)
-    is_driver = models.BooleanField('Driver', default=False)
-    is_active = models.BooleanField(default=True)
-
 
 class the_rideForm(models.Model):
     car_plate = models.CharField(max_length=255)
@@ -32,3 +22,68 @@ class the_ride(models.Model):
     fields = ['driver','car_plate','car_color','origin_area','destination_area', 'destination_stop','date','time','available_seats']
     def __str__(self):
         return self.driver
+
+class the_tripForm(models.Model):
+    d_date = models.DateField()
+    d_time = models.TimeField()
+    number_of_people = models.CharField(max_length=255)
+
+class the_trip(models.Model):
+    passenger = models.CharField(max_length=255)
+    current_area = models.CharField(max_length=255)
+    current_stop = models.CharField(max_length=255)
+    destination_area = models.CharField(max_length=255)
+    destination_stop = models.CharField(max_length=255)
+    d_date = models.CharField(max_length=255)
+    d_time = models.CharField(max_length=255)
+    number_of_people = models.CharField(max_length=255)
+    fields = ['passenger','current_area','current_stop','destination_area', 'destination_stop','d_date','d_time','number_of_people']
+    def __str__(self):
+        return self.passenger
+
+
+class ride_requests(models.Model):
+    ride_id = models.CharField(max_length=255)
+    driver = models.CharField(max_length=255)
+    passenger = models.CharField(max_length=255)
+    current_area = models.CharField(max_length=255)
+    current_stop = models.CharField(max_length=255)
+    destination_area = models.CharField(max_length=255)
+    destination_stop = models.CharField(max_length=255)
+    d_date = models.CharField(max_length=255)
+    d_time = models.CharField(max_length=255)
+    number_of_people = models.CharField(max_length=255)
+    fields = ['ride_id','driver','passenger','current_area','current_stop','destination_area', 'destination_stop','d_date','d_time','number_of_people']
+    def __str__(self):
+        return self.passenger
+
+class approved_requests(models.Model):
+    ride_id = models.CharField(max_length=255)
+    driver = models.CharField(max_length=255)
+    passenger = models.CharField(max_length=255)
+    current_area = models.CharField(max_length=255)
+    current_stop = models.CharField(max_length=255)
+    destination_area = models.CharField(max_length=255)
+    destination_stop = models.CharField(max_length=255)
+    d_date = models.CharField(max_length=255)
+    d_time = models.CharField(max_length=255)
+    number_of_people = models.CharField(max_length=255)
+    fields = ['ride_id','driver','passenger','current_area','current_stop','destination_area', 'destination_stop','d_date','d_time','number_of_people']
+    def __str__(self):
+        return self.passenger
+
+
+class denied_requests(models.Model):
+    ride_id = models.CharField(max_length=255)
+    driver = models.CharField(max_length=255)
+    passenger = models.CharField(max_length=255)
+    current_area = models.CharField(max_length=255)
+    current_stop = models.CharField(max_length=255)
+    destination_area = models.CharField(max_length=255)
+    destination_stop = models.CharField(max_length=255)
+    d_date = models.CharField(max_length=255)
+    d_time = models.CharField(max_length=255)
+    number_of_people = models.CharField(max_length=255)
+    fields = ['ride_id','driver','passenger','current_area','current_stop','destination_area', 'destination_stop','d_date','d_time','number_of_people']
+    def __str__(self):
+        return self.passenger
