@@ -1,10 +1,35 @@
 {% extends "snippets/02_passenger/page-template.html" %}
 {% block content %}
     {% load static %}{% load mathfilters %}
-    <link rel="stylesheet" href = "{% static 'css/passenger/page.css'%}" >
-    <strong>TRIP DETAILS pass</strong>
-    <div class="form-2nd-cont">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">    <link rel="stylesheet" href = "{% static 'css/page_container.css'%}" >
+    <link rel="stylesheet" href = "{% static 'css/passenger/01_01_ridedetails.css'%}" >
+    <div class="form-2nd-cont" style="text-align: center;">
+        <div class="headrow">
+            <div class="col left_side">
+                
+            </div>
+            <div class="col right_side">
+                <a href="{% url 'TripComfirmation'%}" >Trip Comfirmation</a>
+            </div>
+            
+        </div>
+        <form class="page-group" method="POST" action="">
+            <fieldset>
+                {% csrf_token %}
+                <div class="row">
+                    <div class="column left">Trip</div>
+                    <div class="column right"></div>
+                </div>
+            </fieldset>
+            {% for message in messages %}
+                <p style="color: red;" id="messages">{{message}}</p>
+            {%endfor%}
+            <div class="button_container">
+                <input type="submit" value="Request Ride" class="button" >		
+            </div>    
+        </form> 
     </div>
+
 {% endblock content %}
 

@@ -12,7 +12,7 @@ from .views_00login import *
 # DRIVER PAGES
 # Home
 global ps_username
-ps_username = "username"
+ps_username = "user_passenger"
 #lists
 all_passenger_registered_trips = []
 passenger_trip = {"trip_id":"","username":"","current_area":"","current_stop":"","destination_area":"", "destination_stop":"","d_date":"","d_time":"","number_of_people":""}
@@ -64,9 +64,11 @@ def fn_showride(request,ride_id):
     ride = the_ride.objects.get(pk=ride_id)
     if request.POST:
         try: 
-            copy_passenger_trips() #passenger trips list
+            copy_passenger_trips(request) #passenger trips list
             driver = ride
             for count in range(0, len(all_passenger_registered_trips)):
+                print("ps_username: ", ps_username)
+                print("username : ", all_passenger_registered_trips[count]["username"])
                 if(all_passenger_registered_trips[count]["username"])==ps_username:
                     username = ps_username
                     orig_area = all_passenger_registered_trips[count]["current_area"]
@@ -79,29 +81,33 @@ def fn_showride(request,ride_id):
             new_request= ride_requests(driver=driver,passenger=username,current_area = orig_area,current_stop = orig_stop,
                 destination_area = dest_area,destination_stop = dest_stop,d_date =date,d_time = time,number_of_people =n_people)
             try:
-                return redirect("home")
+                return redirect("TripComfirmation")
             except:messages.info(request, "System error, retry or change driver") 
         except: messages.info(request, "System error, retry")
     context = {"form"}
     return render(request, "02_passenger/01_01_ridedetails.html", {"ride": ride})  # context)
 
-def copy_passenger_trips():
-    all_trips = the_trip.objects.all().order_by('ride_id')
-    for request in all_trips:
-        passenger = request.passenger
-        or_area=request.current_area;or_stop=request.current_stop
-        dest_area = request.destination_area; dest_stop=request.destination_stop
-        date = request.d_date; time = request.d_time
-        n_people = request.number_of_people
-        trip_details = passenger_trip.copy
-        trip_details["username"]=passenger
-        trip_details["current_area"]=or_area
-        trip_details["current_stop"]=or_stop
-        trip_details["destination_area"]=dest_area
-        trip_details["destination_stop"]=dest_stop
-        trip_details["d_date"]=date; trip_details["d_time"]=time
-        trip_details["number_of_people"]=n_people
-        all_passenger_registered_trips.append(trip_details)   
+def copy_passenger_trips(request):
+    try:
+        all_trips = the_trip.objects.all()
+
+        for ps_request in all_trips:
+            passenger = ps_request.passenger
+            or_area=ps_request.current_area;or_stop=ps_request.current_stop
+            dest_area = ps_request.destination_area; dest_stop=ps_request.destination_stop
+            date = ps_request.d_date; time = ps_request.d_time
+            n_people = ps_request.number_of_people
+            trip_details = dict(passenger_trip)
+            trip_details["username"]=passenger
+            trip_details["current_area"]=or_area
+            trip_details["current_stop"]=or_stop
+            trip_details["destination_area"]=dest_area
+            trip_details["destination_stop"]=dest_stop
+            trip_details["d_date"]=date; trip_details["d_time"]=time
+            trip_details["number_of_people"]=n_people
+            all_passenger_registered_trips.append(trip_details)  
+    except:
+        messages.info(request, "Error, copying passenger trip")
 
 
 def copy_passenger_requests():
