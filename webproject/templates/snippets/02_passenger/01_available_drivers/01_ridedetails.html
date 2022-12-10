@@ -1,0 +1,66 @@
+{% extends "snippets/02_passenger/page-template.html" %}
+{% block content %}
+    {% load static %}{% load mathfilters %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">    <link rel="stylesheet" href = "{% static 'css/page_container.css'%}" >
+    <link rel="stylesheet" href = "{% static 'css/passenger/01_01_ridedetails.css'%}" >
+    <div class="form-2nd-cont" style="text-align: center;">
+        <div class="headrow">
+            <div class="col left_side">
+                <a href="{% url 'available_drivers' %}" ><i class="fa fa-arrow-left">-</i></a>
+            </div>
+            <div class="col right_side">
+                <a href="{% url 'showride' ride.id %}" >Ride Details</a>
+            </div>
+            
+        </div>
+        <form class="page-group" method="POST" action="">
+            <fieldset>
+                {% csrf_token %}
+                <div class="row">
+                    <div class="column left">Driver:</div>
+                    <div class="column right"><i class="material-icons">&#xe7fd;</i><br>{{ride}}</div>
+                </div>
+                <div class="row">
+                    <div class="column left">From:</div>
+                    <div class="column right">
+                        {{ride.origin_area}}<br>{{ride.origin_stop}}
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="column left">To:</div>
+                    <div class="column right">
+                        {{ride.destination_area}}<br>{{ride.destination_stop}}
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="column left"><i class="material-icons">&#xe332;</i></div>
+                    <div class="column right">
+                        Plate: {{ride.car_plate}}<br>Color: {{ride.car_color}}
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="column left">Departure:</div>
+                    <div class="column right">{{ride.time}}<br>{{ride.date}}</div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="column left">Available seats:</div>
+                    <div class="column right">{{ride.available_seats}}</div>
+                </div>
+                <br>
+            </fieldset>
+            {% for message in messages %}
+                <p style="color: red;" id="messages">{{message}}</p>
+            {%endfor%}
+            <div class="button_container">
+                <input type="submit" value="Request Ride" class="button" >		
+            </div>    
+        </form> 
+    </div>
+
+{% endblock content %}
+

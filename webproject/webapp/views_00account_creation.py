@@ -1,5 +1,4 @@
-from django.shortcuts import render, redirect
-from django.contrib import messages
+from .views_000_req import *
 from .forms_00register_login import Driver_Register, Passenger_Register
 
 # views

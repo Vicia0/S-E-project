@@ -1,3 +1,4 @@
+
 form{text-align:center; position:relative; width:80%;left:10%; height:90%;top:3%}
 form h2{font-size: large;}
 form .create-acc-form{width:90%; position:relative; left:5%; top:0%}
@@ -9,8 +10,7 @@ form .create-acc-form .details select{color:rgb(95, 91, 91)}
 form .create-acc-form .details .item{height: 49px;}
 form .create-acc-form .details .term_privacy{height:10px; width:110%; position: relative;left:-5%}
 form .create-acc-form .details .term_privacy .left,
-    form .create-acc-form .details .term_privacy .right{
-        width:100%}
+form .create-acc-form .details .term_privacy .right{width:100%}
 form .create-acc-form .details .term_privacy .left{float: left;width: 90%}
 form .create-acc-form .details .term_privacy .right{float: right;width: 8%;position:relative;right:2%;top:-20%;height:10px}
 form .button {text-align:center ; height:45px; width:85%; border-radius: 10px;color:white;font-weight: bold;background-color: #36AE7C; border:none}

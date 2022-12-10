@@ -1,0 +1,3 @@
+- Django
+- virtual env (Optional)
+- Mysql

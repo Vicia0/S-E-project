@@ -1,0 +1,48 @@
+{% extends "snippets/02_passenger/page-template.html" %}
+{% block content %}
+    {% load static %}{% load mathfilters %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">    <link rel="stylesheet" href = "{% static 'css/page_container.css'%}" >
+    <link rel="stylesheet" href = "{% static 'css/passenger/01_00_available_drivers.css'%}" >
+    <div class="headrow">
+        <div class="col left_side">
+            <a href="{% url 'passenger_homepage' %}" ><i class="fa fa-arrow-left">-</i></a>
+        </div>
+        <div class="col right_side">
+            <a href="{% url 'available_drivers' %}" >Available Rides</a>
+        </div>
+        
+    </div>
+    <div class="form-2nd-cont">
+        <div class="page">
+            {% for ride in all_rides %}
+                <div class="roww">
+                    <div class="column left">
+                        <i class="material-icons">&#xe7fd;</i>
+                        {{ride}}
+                    </div>
+                    <div class="column middle" >
+                        {{ride.origin_area}}
+                        ({{ride.origin_stop}})<br>
+                        <i class="material-icons">&#xeb3c;</i>
+                        <i class="material-icons">&#xe5db;</i>
+                        <br>{{ride.destination_area}}
+                        ({{ride.destination_stop}})
+                    </div>
+                    <div class="column right">
+                        <br>
+                        {{ride.time}}<br>
+                        {{ride.date}}<br><br>
+                        <a href="{% url 'showride' ride.id %}">View Details </button>                             
+                    </div>
+                </div>
+                <br><br>
+            {%endfor%}
+
+
+        </div>
+
+    </div>
+
+{% endblock content %}
+
