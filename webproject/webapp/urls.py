@@ -24,6 +24,10 @@ urlpatterns = [
     # path('home', views.home, name='home')
     # DRIVER LINKS, pages in order
     path("Driver/Requests/", fn_requests, name="passenger_requests"),
+    path("Driver/ActiveRequests/", fn_active_requests, name="passenger_active_requests"),
+    path("Driver/ApprovedRequests/", fn_approved_requests, name="passenger_approved_requests"),
+
+    
     path("Driver/Stops/", fn_requests, name="passenger_stops"),
     path("Driver/Dropoffs/", fn_requests, name="passenger_dropoffs"),
     # PASSENGER LINKS, pages in order

@@ -1,0 +1,30 @@
+{% extends "snippets/02_driver/01_requests/01_00request.html" %}
+{% block anothercontent %}
+    {% load static %}{% load mathfilters %}
+    <link rel="stylesheet" href = "{% static 'css/driver/01_01activerequests.css'%}" >
+    <form name="active_requests" method="POST" id="active_requests" >
+        {%csrf_token%}
+        Active Requests
+        {% if n_pending_requests > 0 %}
+            Looping through
+            {% for request in pending_dr_requests %}
+                {% for key, value in pending_dr_requests.0.items %}
+                    {% if key == "username"%}
+                        {{ value }}:
+                    {% elif key == "d_time" %}
+                        {{ value }}<br>
+                    {%endif%}
+                {%endfor%}
+            {% endfor %}
+        {% else %}
+            There are currently no active requests to your ride
+        {%endif%}
+        <br>
+        messages:
+        {% for message in messages %}
+            <p style="color: red;" id="messages">{{message}}</p>
+        {%endfor%}
+    </form>
+
+{% endblock anothercontent %}
+

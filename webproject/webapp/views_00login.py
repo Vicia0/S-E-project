@@ -1,10 +1,8 @@
 from .views_000_req import *
 from .forms_00register_login import LoginForm
-
 # LOGIN PAGES
-global user_passenger
-user_passenger = "passenger"
-
+user_passenger=[]
+user_driver = []
 def fn_passenger_login(request):  # Passenger
     form = LoginForm(request.POST or None)
     if request.method == 'POST':
@@ -13,9 +11,9 @@ def fn_passenger_login(request):  # Passenger
             password = form.cleaned_data.get('password')
             user = authenticate(username=username, password=password)
             if user is not None and user.is_passenger:
-                global user_passenger
-                user_passenger =""
-                user_passenger = username
+                global passenger
+                passenger = username
+                user_passenger.append(passenger)
                 login(request, user)
                 return redirect('/Passenger/homepage/')
             else:
@@ -24,8 +22,7 @@ def fn_passenger_login(request):  # Passenger
             messages.info(request,"Error validating form")
     return render(request, "01_login_register/login_passenger.html", {'form': form})
 
-global user_driver
-user_driver = "driver"
+
 def fn_driver_login(request):
     form = LoginForm(request.POST or None)
     if request.method == 'POST':
@@ -34,8 +31,8 @@ def fn_driver_login(request):
             password = form.cleaned_data.get('password')
             user = authenticate(username=username, password=password)
             global user_driver
-            user_driver =""
-            user_driver = username
+            driver = username
+            user_driver.append(driver)
             if user is not None and user.is_driver:
                 login(request, user)
                 return redirect('/Driver/homepage/')

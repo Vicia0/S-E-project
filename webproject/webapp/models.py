@@ -42,7 +42,7 @@ class the_trip(models.Model):
         return self.passenger
 
 
-class ride_requests(models.Model):
+class ride_request(models.Model):
     ride_id = models.CharField(max_length=255)
     driver = models.CharField(max_length=255)
     passenger = models.CharField(max_length=255)
@@ -57,7 +57,7 @@ class ride_requests(models.Model):
     def __str__(self):
         return self.passenger
 
-class approved_requests(models.Model):
+class approved_request(models.Model):
     ride_id = models.CharField(max_length=255)
     driver = models.CharField(max_length=255)
     passenger = models.CharField(max_length=255)
@@ -73,7 +73,7 @@ class approved_requests(models.Model):
         return self.passenger
 
 
-class denied_requests(models.Model):
+class denied_request(models.Model):
     ride_id = models.CharField(max_length=255)
     driver = models.CharField(max_length=255)
     passenger = models.CharField(max_length=255)

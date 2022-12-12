@@ -1,0 +1,13 @@
+{% extends "snippets/02_driver/01_requests/01_00request.html" %}
+{% block anothercontent %}
+    {% load static %}{% load mathfilters %}
+    <style>
+        #toggle_switch {left: 50%;}
+    </style>
+    <link rel="stylesheet" href = "{% static 'css/driver/01_01activerequests.css'%}" >
+    <form name="trip_form" method="POST" id="trip_form" >
+        {%csrf_token%}
+        Approved
+    </form>
+{% endblock anothercontent %}
+
