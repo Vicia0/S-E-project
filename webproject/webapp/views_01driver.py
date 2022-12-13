@@ -21,17 +21,18 @@ def get_username(request):
         return redirect("driver_login")  # context)
         
     else:
-        username_d = user_driver[0]
+        username_d = user_driver[(len(user_driver))-1]
 
 def fn_dr_tripdetails(request):
     #fields = ['username','car','origin_area','origin_stop','destination_area',
     #    'destination_stop','date','time','available_seats']
     all_fields = 'no'
     if request.POST:
-        try: username = user_driver[0]
-        except:
-            messages.info(request, "System timeout, Login again")
-            return redirect("driver_login")
+        if (len(user_driver)>0):
+            try: username = user_driver[(len(user_driver))-1]
+            except:
+                messages.info(request, "System timeout, Login again")
+                return redirect("driver_login")
         orig_area =request.POST['area_curr']; orig_stop =request.POST['stop_curr']
         dest_area =request.POST['area_dest']; dest_stop =request.POST['stop_dest']
         car_plate=request.POST['car_plate']; car_color=request.POST['car_color']
