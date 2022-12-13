@@ -20,14 +20,14 @@ def get_username(request):
         messages.info(request, "Systems timeout, Login again")
         return redirect("passenger_login")  # context)
     else:
-        username_p = user_passenger[0]
+        username_p = user_passenger[(len(user_passenger)-1)]
 
 all_passenger_registered_trips = []
 passenger_trip = {"trip_id":"","username":"","current_area":"","current_stop":"","destination_area":"", "destination_stop":"","d_date":"","d_time":"","number_of_people":""}
 def fn_ps_tripdetails(request):
     all_fields = 'no'
     if request.POST:
-        try: username = user_passenger[0]
+        try: username = user_passenger[(len(user_passenger)-1)]
         except:
             messages.info(request, "System timeout, Login again")
             return redirect("passenger_login")
@@ -36,7 +36,7 @@ def fn_ps_tripdetails(request):
         n_people = request.POST['number_of_people']
         d_date = request.POST['d_date']; d_time=request.POST['d_time']
         print("username: ", username)
-        print("user_passenger: ", user_passenger[0])
+        print("user_passenger: ", user_passenger[(len(user_passenger)-1)])
         get_username(request)
         if username=="":
             get_username(request)
@@ -81,10 +81,10 @@ def fn_showride(request,ride_id):
             copy_passenger_trips(request) #passenger trips list
             driver = ride
             for count in range(0, len(all_passenger_registered_trips)):
-                print("user_passenger: ", user_passenger)
+                print("user_passenger: ", user_passenger[(len(user_passenger)-1)])
                 print("username : ", all_passenger_registered_trips[count]["username"])
-                if(all_passenger_registered_trips[count]["username"])==user_passenger:
-                    username = user_passenger
+                if(all_passenger_registered_trips[count]["username"])==user_passenger[(len(user_passenger)-1)]:
+                    username = user_passenger[(len(user_passenger)-1)]
                     orig_area = all_passenger_registered_trips[count]["current_area"]
                     orig_stop = all_passenger_registered_trips[count]["current_stop"]
                     dest_area = all_passenger_registered_trips[count]["destination_area"]
@@ -92,12 +92,14 @@ def fn_showride(request,ride_id):
                     date = all_passenger_registered_trips[count]["d_date"]
                     time = all_passenger_registered_trips[count]["d_time"]
                     n_people = all_passenger_registered_trips[count]["number_of_people"]
-                    new_request= ride_request(driver=driver,passenger=username,current_area = orig_area,current_stop = orig_stop,
+                    new_request= ride_request(driver=driver,ride_id=ride_id,passenger=username,current_area = orig_area,current_stop = orig_stop,
                         destination_area = dest_area,destination_stop = dest_stop,d_date =date,d_time = time,number_of_people =n_people)
                     try:
+                        print("done")
                         new_request.save()
+                        return redirect("TripComfirmation")
                     except:messages.info(request, "System error, retry or change driver") 
-            return redirect("TripComfirmation")
+            
         except: messages.info(request, "System error, retry")
     context = {"form"}
     get_username(request)
@@ -107,8 +109,8 @@ def copy_passenger_trips(request):
     #Copying all passengers so we call passengers info into a dictionary and push it to the requests
     try:
         all_trips = the_trip.objects.all()
-
         for ps_request in all_trips:
+            print("Copying passenger")
             passenger = ps_request.passenger
             or_area=ps_request.current_area;or_stop=ps_request.current_stop
             dest_area = ps_request.destination_area; dest_stop=ps_request.destination_stop

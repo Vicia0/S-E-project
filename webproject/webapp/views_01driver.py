@@ -64,7 +64,7 @@ def fn_dr_tripdetails(request):
             new_trip= the_ride(driver = username,car_plate = car_plate,car_color = car_color,origin_area = orig_area,origin_stop = orig_stop,destination_area = dest_area,destination_stop = dest_stop,date =date,time = time,available_seats =av_seats )
             try:
                 new_trip.save()
-                return redirect("passenger_requests")
+                return redirect("passenger_active_requests")
             except:messages.info(request, "Error submitting the form")            
     get_username(request)
     return render(request, "02_driver/00_homepage.html", {'form':online_Drivers,"name":username_d })  # context)
@@ -79,7 +79,7 @@ def fn_active_requests(request):
     try: 
         pending_dr_requests.clear()
         copy_passenger_requests(request) #passenger trips list
-        logged_driver = user_driver
+        logged_driver = user_driver[(len(user_driver))-1]
         for count in range(0, len(all_passenger_requests)):
             print("dr_username: ", logged_driver)
             print("username : ", all_passenger_requests[count]["driver"])
@@ -102,16 +102,23 @@ def fn_active_requests(request):
                     n_pending_requests = len(pending_dr_requests)
                     print(pending_dr_requests)
                     print(pending_request)
-                    messages.info(request,"done ")
                 except:
                     print("not done")
         try:
             all_requests = ride_request.objects.all().order_by('ride_id')
             for x in range(0,len(pending_dr_requests)):
                 print(len(pending_dr_requests) , "rounds")
-                x =8
-                messages.info(request,"rounds")
-        except:print("convieniet error")
+            if(request.GET.get('comfirm')):
+                print("YES\nYES\nYES\nYES\nYES\nYES\nYES\nYES\nYES")
+                pass
+                #button_value =
+            if(request.GET.get('decline')):
+                print("NO\nNO\nNO\nNO\nNO\nNO\nNO\nNO\nNO\nNO\nNO")
+                pass
+                #button_value =
+             
+
+        except:print("convinient error")
         """ new_request= ride_request(driver=driver,ride_id=ride_id,passenger=passenger,current_area = orig_area,current_stop = orig_stop,
             destination_area = dest_area,destination_stop = dest_stop,d_date =date,d_time = time,number_of_people =n_people)
         try:
@@ -126,11 +133,15 @@ def fn_active_requests(request):
     return render(request, "02_driver/01_01activerequests.html", context, ) 
 
 
+
+
+
 def copy_passenger_requests(request):
     #Copying all passengers requests so we call passengers requests 
     # and check those that belong to the driver and add them to a dictionary
     try:
         all_requests = ride_request.objects.all().order_by('ride_id')
+        all_passenger_requests.clear()
         for ps_request in all_requests:
             id_ride = ps_request.ride_id;driver = ps_request.driver
             passenger = ps_request.passenger
@@ -150,7 +161,6 @@ def copy_passenger_requests(request):
             request_details["number_of_people"]=n_people
             all_passenger_requests.append(request_details) 
             print("done copying") 
-            messages.info(request,"done copying")
     except:
         messages.info(request, "Error, copying passenger trip")
 
