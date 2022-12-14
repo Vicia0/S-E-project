@@ -1,0 +1,53 @@
+{% extends "snippets/02_driver/02_stops_dropoffs/02_00directions.html" %}
+{% block anothercontent %}
+    {% load static %}{% load mathfilters %}
+    <style>
+        #toggle_switch {left: 50%;}
+    </style>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">    
+    <link rel="stylesheet" href = "{% static 'css/page_container.css'%}" >
+    <link rel="stylesheet" href = "{% static 'css/driver/02_01dropoffs.css'%}" >
+
+    <form name="dropoffs" method="get" id="dropoff" >
+        {%csrf_token%}
+        {% if all_dropsoff%}
+            {% for request in all_dropsoff %}
+                <div class="roww">   
+                    <div class="column left">
+                        <strong>{{request.current_area}}</strong><br>
+                        {{request.current_stop}}<br>
+                        <i class="material-icons">&#xeb3c;</i>   
+                        <br>{{request.d_date}}<br><br>             
+                    </div>
+                    <div class="column right"> 
+                        <select name="id" style="display:none; visibility:hidden;">
+                            <option>{{request.id}}</option>
+                        </select>
+                        <select name="req_id" style="display:none; visibility:hidden;">
+                            <option>{{request.request_id}}</option>
+                        </select>
+                        <i class="material-icons">&#xe7fd;</i><br>
+                        {{request.passenger}} ({{request.d_time}})
+                        <button type="checkbox" id="drop" name="drop" value="drop" >Drop Off</button>
+                    </div>
+                </div>
+            {%endfor%}
+        {% else %}
+            There are currently no dropoffs to your ride
+        {%endif%} 
+        <br>
+        {% for message in messages %}
+            <p style="color: red;" id="messages">{{message}}</p>
+        {%endfor%}
+        <div style="position: relative;top:50%; text-align:center">
+            <button type="checkbox" id="end" name="end" value="end" class="button" onclick="end()">End Ride</button>
+        </div>
+    </form>
+    <script>
+        function end() {
+          location.href="{% url 'driver_homepage' %}"
+        }
+    </script>
+
+{% endblock anothercontent %}
+

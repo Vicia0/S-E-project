@@ -32,9 +32,9 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);
 
 
 
-.page .roww{width: 120%;height:22%; background-color: black;position: relative;left:-10%;top:2%}
+.page .roww{width: 110%;height:20%; background-color: black;position: relative;left:-5%;top:2%}
 
-.page .roww .column{float: left;text-align: left;height: 70%;padding: 10px;color:navy;font-size: x-small;background-color: aquamarine;}
-.page .roww .column.left{width:9%}
-.page .roww .column.middle{width:47%}
-.page .roww .column.right{width:20% }
+.page .roww .column{position: relative;left: 0.5%;top:1%;float: left;text-align: left;height: 70%;padding: 10px;color:navy;font-size: x-small;background-color: aquamarine;}
+.page .roww .column.left{width:49.8%}
+.page .roww .column.middle{width:0%}
+.page .roww .column.right{width:32% }

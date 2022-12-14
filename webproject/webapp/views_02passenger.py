@@ -3,7 +3,7 @@ from .views_000_req import *
 from .forms_01driver import online_Passengers#, online_Passengers
 #models
 from .models_00User import User
-from .models import the_trip, ride_request
+from .models import the_trip, ride_request,approved_request,denied_request
 from .models import the_ride #for pulling available drivers
 #views login
 from .views_00login import *
@@ -128,10 +128,40 @@ def copy_passenger_trips(request):
     except:
         messages.info(request, "Error, copying passenger trip")
 
+passeng =[]
 def fn_TripComfirmation(request):
-    context = {"form"}
+    all_approved = approved_request.objects.all()
+    all_denied = denied_request.objects.all()
+    all_req = ride_request.objects.all()
+    possit = ['nop']
+    details = []
+    if(len(user_passenger)>0):
+        try:
+
+            logged_passenger = user_passenger[(len(user_passenger))-1]
+            passeng[0]=logged_passenger
+            for x in all_approved:
+                if(x.passenger == logged_passenger):
+                    details = [x.driver, x.ride_id, x.d_date, x.d_time ]
+                    possit[0]=['approved'];break
+            for x in all_denied:
+                if(x.passenger == logged_passenger):
+                    details = [x.driver, x.ride_id, x.d_date, x.d_time ]
+                    possit[0]=['denied'];break 
+            if(possit[0]!='approved' and possit[0]!='denied'):
+                for x in all_req:
+                    if(x.passenger == logged_passenger):
+                        details = [x.driver, x.ride_id, x.d_date, x.d_time ]
+                        possit=['None'];break 
+            print('possit:',possit[0])             
+            if(request.POST):
+                return redirect("passenger_homepage")
+        except:
+            print("System timeout, login ")
     get_username(request)
-    return render(request, "02_passenger/02_TripComfirmation.html", {"name":username_p})  # context)
+    context = {"name":username_p, 'all_approved':all_approved, 'all_denied':all_denied, 'position':possit,'logged_passenger':passeng, 'details':details}
+    return render(request, "02_passenger/02_TripComfirmation.html", context)  # context)
+
 
 def fn_TripDetails(request):
     context = {"form"}

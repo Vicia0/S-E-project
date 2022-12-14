@@ -6,14 +6,15 @@
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         </div>
         <div class="right-sid">
-            <img alt="" class="img-icon" src="{% static 'images/driver-img.webp' %}" >
+            <img alt="" class="img-icon" src="{% static 'images/driver.png' %}" >
         </div>
         </div>
         <div class="overlay-menu-content">
             <a href="#">MY CARS&nbsp;<i class="fa fa-angle-right"></i></a> 
             <a href="{% url 'driver_homepage' %}">TRIP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right"></i></a>
             <a href="{% url 'passenger_active_requests' %}">REQUESTS<i class="fa fa-angle-right"></i></a>
-            <a href="#">STOPS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right"></i></a>
+            <a href="{% url 'passenger_stops' %}">STOPS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right"></i></a>
+            <a href="{% url 'passenger_dropoffs' %}">DROP OFFS<i class="fa fa-angle-right"></i></a>
             <a href="#">SETTINGS&nbsp;<i class="fa fa-angle-right"></i></a>
             <a href="{% url 'driver_login' %}">LOG OUT&nbsp;&nbsp;<i class="fa fa-angle-right"></i></a>
         </div>
@@ -26,7 +27,7 @@
         </div>
         <div class="right-side">
             <span><strong> Driver {{name}}</strong></span>
-            <img alt="" class="img-icon" src="{% static 'images/driver-img.webp' %}"  >
+            <img alt="" class="img-icon" src="{% static 'images/driver.png' %}"  >
         </div>
     </div>
     <script>

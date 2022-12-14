@@ -28,8 +28,8 @@ urlpatterns = [
     path("Driver/ApprovedRequests/", fn_approved_requests, name="passenger_approved_requests"),
 
     
-    path("Driver/Stops/", fn_requests, name="passenger_stops"),
-    path("Driver/Dropoffs/", fn_requests, name="passenger_dropoffs"),
+    path("Driver/Stops/", fn_stops, name="passenger_stops"),
+    path("Driver/Dropoffs/", fn_dropoff, name="passenger_dropoffs"),
     # PASSENGER LINKS, pages in order
     path("Passenger/AvailableDrivers/", fn_available_drivers, name="available_drivers"),
     path("Passenger/AvailableDrivers/Showride/<ride_id>", fn_showride, name="showride"),

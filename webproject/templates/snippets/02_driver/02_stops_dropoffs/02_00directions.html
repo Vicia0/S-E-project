@@ -1,0 +1,31 @@
+{% extends "snippets/02_driver/page-template.html" %}
+{% block content %}
+    {% load static %}{% load mathfilters %}
+    <link rel="stylesheet" href = "{% static 'css/driver/02_00directions.css'%}" >
+    <strong>REQUESTS</strong>
+    <div class="form-2nd-cont">
+      <div class="toggle_box">
+        <div id="toggle_switch"></div>
+        
+        <button type="submit" class="toggle_btn" onclick="leftClick()">Pickup</button>
+        <button type="submit" class="toggle_btn" onclick="rightClick()">Dropoff</button>
+      </div>
+      {%block anothercontent %}
+
+
+      {% endblock anothercontent %}
+      <script>
+        var toggle_switch = document.getElementById('toggle_switch')
+        function leftClick() {
+          toggle_switch.style.left = '0%';
+          location.href="{% url 'passenger_stops' %}"
+        }
+        function rightClick() {
+          toggle_switch.style.left = '50%';
+          location.href="{% url 'passenger_dropoffs' %}"
+      }
+      </script>
+    </div>
+
+{% endblock content %}
+

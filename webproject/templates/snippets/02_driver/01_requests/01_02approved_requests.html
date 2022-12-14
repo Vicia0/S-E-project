@@ -4,10 +4,45 @@
     <style>
         #toggle_switch {left: 50%;}
     </style>
-    <link rel="stylesheet" href = "{% static 'css/driver/01_01activerequests.css'%}" >
-    <form name="trip_form" method="POST" id="trip_form" >
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">    
+    <link rel="stylesheet" href = "{% static 'css/page_container.css'%}" >
+    <link rel="stylesheet" href = "{% static 'css/driver/01_02approvedrequests.css'%}" >
+    
+    <form name="trip_form" method="get" id="trip_form" >
         {%csrf_token%}
-        Approved
+        {% if all_approved%}
+            {% for request in all_approved %}
+                <div class="roww">   
+                    <div class="column left">
+                        <i class="material-icons">&#xe7fd;</i>
+                        {{request.passenger}}                        
+                    </div>
+                    <div class="column middle"> 
+                        {{request.current_area}}
+                        ({{request.current_stop}})<br>
+                        <i class="material-icons">&#xeb3c;</i>
+                        <i class="material-icons">&#xe5db;</i><br>
+                        {{request.destination_area}}
+                        ({{request.destination_stop}})
+                    </div>
+                    <div class="column right"> 
+                        {{request.d_time}}
+                        <br>{{request.d_date}}
+                    </div>
+                </div>
+            {%endfor%}
+        {% else %}
+            There are currently no Approved requests to your ride
+        {%endif%} 
+        <br>
+        {% for message in messages %}
+            <p style="color: red;" id="messages">{{message}}</p>
+        {%endfor%}
+        <div style="position:inherit; bottom:-40%; width:110%; left:-2%">
+            <button type="checkbox" id="start" name="start" value="start_r" class="button">Start Ride</button>
+            &nbsp; &nbsp; &nbsp; <button type="checkbox" id="cancel" name="cancel" value="cancel_r" class="button">Cancel Ride</button>
+        </div>
     </form>
 {% endblock anothercontent %}
 

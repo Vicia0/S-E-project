@@ -1,0 +1,40 @@
+{% extends "snippets/02_driver/02_stops_dropoffs/02_00directions.html" %}
+{% block anothercontent %}
+    {% load static %}{% load mathfilters %}
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">    
+    <link rel="stylesheet" href = "{% static 'css/page_container.css'%}" >
+    <link rel="stylesheet" href = "{% static 'css/driver/02_00stops.css'%}" >
+
+    <form name="stops" method="get" id="stops" >
+        {%csrf_token%}
+        {% if all_approved_requests%}
+            {% for request in all_approved_requests %}
+                <div class="roww">   
+                    <div class="column left">
+                        <strong>{{request.destination_area}}</strong><br>
+                        {{request.destination_stop}}<br>
+                        <i class="material-icons">&#xeb3c;</i>   
+                        <br>{{request.d_date}}<br><br>             
+                    </div>
+                    <div class="column right"> 
+                        <select name="id" style="display:none; visibility:hidden;">
+                            <option>{{request.id}}</option>
+                        </select>
+                        <i class="material-icons">&#xe7fd;</i><br>
+                        {{request.passenger}} ({{request.d_time}})
+                        <button type="checkbox" >Pick up</button>
+                    </div>
+                </div>
+            {%endfor%}
+        {% else %}
+            There are currently no Approved requests to your ride
+        {%endif%} 
+        <br>
+        {% for message in messages %}
+            <p style="color: red;" id="messages">{{message}}</p>
+        {%endfor%}
+
+    </form>
+
+{% endblock anothercontent %}
+

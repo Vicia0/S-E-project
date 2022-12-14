@@ -15,18 +15,50 @@
             
         </div>
         <form class="page-group" method="POST" action="">
-            <fieldset>
-                {% csrf_token %}
+            {% csrf_token %}
+            <fieldset>       
                 <div class="row">
-                    <div class="column left">Trip</div>
-                    <div class="column right"></div>
+                    {%if position.0 == "approved" %}
+                        <div class="column left">
+                            Request {{details.1}}
+                            Driver: 
+                            Date:
+                            Time:
+                        </div>
+                        <div class="column right">
+                            Approved
+                            {{details.0}}
+                            {{details.2}}
+                            {{details.3}}
+                        </div>                           
+                    {%elif position.0 == "denied"%}
+                        <div class="column left">
+                            Request {{details.1}}
+                            Driver: 
+                            Date:
+                            Time:
+                        </div>
+                        <div class="column right">
+                            Denied
+                            {{details.0}}
+                            {{details.2}}
+                            {{details.3}}
+                        </div>        
+                    {%else%}
+                        <div class="column left">
+                            Request {{details.1}}
+                        </div>
+                        <div class="column right">
+                            Awaiting Comfirmation
+                        </div>        
+                    {%endif%}
                 </div>
             </fieldset>
             {% for message in messages %}
                 <p style="color: red;" id="messages">{{message}}</p>
             {%endfor%}
-            <div class="button_container">
-                <input type="submit" value="Request Ride" class="button" >		
+            <div class="button_container" style="top: 230px; text-align:left">
+                <i style="font-size:24px" class="fa">&#xf095;</i> Dial 0303 for Assistance	
             </div>    
         </form> 
     </div>

@@ -3,15 +3,15 @@
     {% load static %}
     <div class="overlay-nav">
         <div><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
-            <div class="right-sid"><img alt="" class="img-icon" src="{% static 'images/passenger-img.jpg' %}" ></div>
+            <div class="right-sid"><img alt="" class="img-icon" src="{% static 'images/passenger.png' %}" ></div>
         </div>
         <div class="overlay-menu-content">
-            <a href="#">MY CARS&nbsp;<i class="fa fa-angle-right"></i></a> 
-            <a href="{% url 'passenger_homepage' %}">TRIP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right"></i></a>
-            <a href="{% url 'available_drivers' %}">AVAILABLE RIDES<i class="fa fa-angle-right"></i></a>
-            <a href="#">STOPS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right"></i></a>
-            <a href="#">SETTINGS&nbsp;<i class="fa fa-angle-right"></i></a>
-            <a href="{% url 'passenger_login' %}">LOG OUT&nbsp;&nbsp;<i class="fa fa-angle-right"></i></a>
+            <a href="{% url 'passenger_homepage' %}">TRIP</a>
+            <a href="{% url 'available_drivers' %}">AVAILABLE RIDES</a>
+            <a href="{% url 'TripComfirmation' %}">TRIP COMFIRMATION</a>
+            <a href=''>SETTINGS&nbsp;</a>
+            <a href=''>REQUEST HELP&nbsp;</a>
+            <a href="{% url 'passenger_login' %}">LOG OUT</a>
         </div>
     </div>
     <div class="nav" id="menu-icon">
@@ -22,7 +22,7 @@
         </div>
         <div class="right-side">
             <span><strong> Passenger {{name}}</strong></span>
-            <img alt="" class="img-icon" src="{% static 'images/passenger-img.jpg' %}"  >
+            <img alt="" class="img-icon" src="{% static 'images/passenger.png' %}"  >
         </div>
     </div>
     <script>

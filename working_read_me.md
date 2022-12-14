@@ -31,6 +31,8 @@ ___________________________________|____________________________|_______________
                                                                                                           |
 Connecting mysql:                                                                                         |
 - pip install mysqlclient                                                                                 |
+Connecting database                                                                                       |
+ - Menu > View > Command                                                                                  |
                                                                                                           |
                                                                                                           |
                                                                                                           |

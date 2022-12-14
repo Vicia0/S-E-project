@@ -1,18 +1,27 @@
 {% extends "snippets/02_driver/01_requests/01_00request.html" %}
 {% block anothercontent %}
+    {% load static %}{% load mathfilters %}
 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">    
+    <link rel="stylesheet" href = "{% static 'css/page_container.css'%}" >
     <link rel="stylesheet" href = "{% static 'css/driver/01_01activerequests.css'%}" >
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">    <link rel="stylesheet" href = "{% static 'css/page_container.css'%}" >
+
     <form name="active_requests" method="get" id="active_requests" >
         {%csrf_token%}
         {% if n_pending_requests > 0 %}
             {% for request in pending_dr_requests %}
+
                 <div class="roww">   
                     <div class="column left">
                         <i class="material-icons">&#xe7fd;</i>
+                        {{pending_dr_requests.0.ride_id}}.
                         {{pending_dr_requests.0.username}}
+                        
                     </div>
                     <div class="column middle"> 
+                        <select name="id" style="display:none; visibility:hidden;">
+                            <option>{{pending_dr_requests.0.ride_id}}</option>
+                        </select>
                         {{pending_dr_requests.0.current_area}}
                         ({{pending_dr_requests.0.current_stop}})<br>
                         <i class="material-icons">&#xeb3c;</i>
@@ -23,10 +32,8 @@
                     <div class="column right"> 
                         {{pending_dr_requests.0.d_time}}
                         <br>{{pending_dr_requests.0.d_date}}
-                        <!--<p><a onclick="comfirm_request()">Comfirm</a></p>
-                        <p><a onclick="reject_request()">Decline</a></p>-->
-                        <button type="checkbox" id="comfirm" name="comfirm" value="comfirm_p" onclick="comfirm_request()">Comfirm</button>
-                        <button type="checkbox" id="decline" name="decline" value="decline_p" onclick="reject_request()">Decline</button>
+                        <button type="checkbox" id="comfirm" name="comfirm" value="comfirm_p">Comfirm</button>
+                        <button type="checkbox" id="decline" name="decline" value="decline_p">Decline</button>
                     </div>
                 </div>
             {%endfor%}
@@ -37,29 +44,7 @@
         {% for message in messages %}
             <p style="color: red;" id="messages">{{message}}</p>
         {%endfor%}
-{% if item %}
 
-   {% define "Edit" as action %}
-
-{% else %}
-
-   {% define "Create" as action %}
-
-{% endif %}
-
-
-Would you like to {{action}} this item?
-        <script>
-            function comfirm_request(objButton) {
-              location.href="{% url 'passenger_approved_requests' %}";
-              alert(objButton.value);
-            }
-            function reject_request(objButton) {
-              location.href="{% url 'passenger_active_requests' %}"
-              alert(objButton.value);
-
-          }
-          </script>
     </form>
 
 {% endblock anothercontent %}
