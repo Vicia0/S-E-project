@@ -33,7 +33,10 @@
                 </div>
             {%endfor%}
         {% else %}
-            There are currently no Approved requests to your ride
+            <div style="color: rgb(29, 24, 24);">
+                <br>
+                There are currently no Approved requests to your ride
+            </div>
         {%endif%} 
         <br>
         {% for message in messages %}

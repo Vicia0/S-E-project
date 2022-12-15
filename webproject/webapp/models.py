@@ -77,6 +77,7 @@ class approved_request(models.Model):
 class denied_request(models.Model):
     ride_id = models.CharField(max_length=255)
     driver = models.CharField(max_length=255)
+    request_id = models.CharField(max_length=255)
     passenger = models.CharField(max_length=255)
     current_area = models.CharField(max_length=255)
     current_stop = models.CharField(max_length=255)

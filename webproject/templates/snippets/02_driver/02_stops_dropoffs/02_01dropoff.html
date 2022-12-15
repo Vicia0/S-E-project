@@ -6,7 +6,7 @@
     </style>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">    
     <link rel="stylesheet" href = "{% static 'css/page_container.css'%}" >
-    <link rel="stylesheet" href = "{% static 'css/driver/02_01dropoffs.css'%}" >
+    <link rel="stylesheet" href = "{% static 'css/driver/02_00stops.css'%}" >
 
     <form name="dropoffs" method="get" id="dropoff" >
         {%csrf_token%}
@@ -17,7 +17,7 @@
                         <strong>{{request.current_area}}</strong><br>
                         {{request.current_stop}}<br>
                         <i class="material-icons">&#xeb3c;</i>   
-                        <br>{{request.d_date}}<br><br>             
+                        <br>{{request.d_date}} ({{request.d_time}})<br><br>             
                     </div>
                     <div class="column right"> 
                         <select name="id" style="display:none; visibility:hidden;">
@@ -27,19 +27,23 @@
                             <option>{{request.request_id}}</option>
                         </select>
                         <i class="material-icons">&#xe7fd;</i><br>
-                        {{request.passenger}} ({{request.d_time}})
-                        <button type="checkbox" id="drop" name="drop" value="drop" >Drop Off</button>
+                        {{request.passenger}} 
+                        <button type="checkbox" id="drop" name="drop" value="drop" class="butn">Drop Off</button>
                     </div>
                 </div>
             {%endfor%}
         {% else %}
-            There are currently no dropoffs to your ride
+            <div class="no_request">
+                <br>
+                There are currently no dropoffs to your ride
+            </div>
+        
         {%endif%} 
         <br>
         {% for message in messages %}
             <p style="color: red;" id="messages">{{message}}</p>
         {%endfor%}
-        <div style="position: relative;top:50%; text-align:center">
+        <div class="button_container">
             <button type="checkbox" id="end" name="end" value="end" class="button" onclick="end()">End Ride</button>
         </div>
     </form>

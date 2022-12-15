@@ -145,7 +145,10 @@ def fn_active_requests(request):
                                     destination_stop = x_dest_stop,d_date = x_date,d_time = x_time,number_of_people = x_n_people)                             
                                 try: 
                                     new_approved.save();new_pickup.save()
-                                    return redirect("passenger_approved_requests")
+                                    try: 
+                                        the_request.delete()
+                                        return redirect("passenger_approved_requests")
+                                    except:print("huge error")
                                 except:print("not saved")
                             except:
                                 print("Error adding the database")
@@ -155,8 +158,12 @@ def fn_active_requests(request):
                                     current_area = x_curr_area, current_stop = x_curr_stop,destination_area = x_dest_area,
                                     destination_stop = x_dest_stop,d_date = x_date,d_time = x_time,number_of_people = x_n_people)
                                 try: 
-                                    new_denied.save(); the_request.delete()
-                                    return redirect("passenger_active_requests")
+                                    new_denied.save() 
+                                    try:
+                                        the_request.delete()
+                                        return redirect("passenger_approved_requests")
+                                    except:
+                                        print("huuuge error")
                                 except:print("not saved")
                                 print("NO\nNO\nNO\nNO")
                             except:
@@ -273,17 +280,12 @@ def fn_dropoff(request):
             print("this_request.driver",this_request.driver)
             if this_request.driver == logged_driver:
                 try:
-                    old_request = ride_request.objects.get(pk=this_request.request_id)
-                    print("this_request.request_id: ", this_request.request_id)
+                    driver_post=the_ride.objects.get(pk=this_request.ride_id)           
+                    print("droppoff saved")
                     try:
-                        this_request.delete();old_request.delete()
-                        print("droppoff saved")
-                        try:
-                            driver_post=the_ride.objects.get(pk=this_request.ride_id)
-                            driver_post.delete()
-                        except:
-                            print("error deleting driver post") 
-                    except:print("issue")
+                        driver_post.delete(); this_request.delete()
+                    except:
+                        print("error deleting driver post") 
                 except:
                     print("error saving pickup")
         elif(request.GET.get('end')):

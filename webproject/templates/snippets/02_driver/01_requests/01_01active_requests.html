@@ -14,7 +14,7 @@
                 <div class="roww">   
                     <div class="column left">
                         <i class="material-icons">&#xe7fd;</i>
-                        {{pending_dr_requests.0.ride_id}}.
+                        <!--{{pending_dr_requests.0.ride_id}}.-->
                         {{pending_dr_requests.0.username}}
                         
                     </div>
@@ -38,7 +38,10 @@
                 </div>
             {%endfor%}
         {% else %}
+            <div style="color: rgb(29, 24, 24);">
+                <br>
             There are currently no active requests to your ride
+            </div>
         {%endif%} 
         <br>
         {% for message in messages %}
